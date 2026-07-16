@@ -16,7 +16,20 @@ if len(profiles)!=7: err(f'expected 7 profiles, found {len(profiles)}')
 skills={p.parent.name for p in (ROOT/'.codex/skills').glob('*/SKILL.md')}
 if len(skills)!=10: err(f'expected 10 skills, found {len(skills)}')
 required=['scripts/task-context.py','scripts/generate-task-docs.py','scripts/project-state.py','docs/architecture/VALIDATION-TIERS.md','AGENTS.md']
+required_product_docs=[
+    'docs/product/README.md',
+    'docs/product/PRODUCT_VISION.md',
+    'docs/product/DESIGN_SYSTEM.md',
+    'docs/product/UX_PRINCIPLES.md',
+    'docs/product/CONTENT_STRATEGY.md',
+    'docs/product/MOTION_GUIDELINES.md',
+    'docs/product/REFERENCE_TRANSLATION.md',
+    'docs/product/DO_NOT_BREAK.md',
+    'docs/product/RELEASE_PLAN.md',
+]
 for r in required:
+    if not (ROOT/r).exists(): err(f'missing {r}')
+for r in required_product_docs:
     if not (ROOT/r).exists(): err(f'missing {r}')
 ids=set(data)
 for tid,m in data.items():
