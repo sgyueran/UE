@@ -1,5 +1,5 @@
 {
-  "version": "4.3",
+  "version": "1.0.0",
   "project": "UE Portfolio AI Blueprint",
   "edition": "Context-Efficient",
   "skills": [
@@ -29,5 +29,10 @@
   "contextGenerator": "scripts/task-context.py",
   "batchValidator": "scripts/task-batch.py",
   "taskWordsApprox": 6194,
-  "previousTaskWordsApprox": 21356
+  "previousTaskWordsApprox": 21356,
+  "releaseName": "Stable Policy Workflow",
+  "taskCount": 51,
+  "skillCount": 10,
+  "policyCount": 9,
+  "notes": "Converged v4.3 task system with repository-level Codex policies."
 }

@@ -1,14 +1,14 @@
 ---
 name: Feature request
-about: Propose a new feature
+about: Propose scoped future work
 ---
 
 ## Summary
 
 ## Motivation
 
-## Proposed Solution
+## Proposed scope
 
-## Alternatives Considered
+## Alternatives
 
-## Additional Notes
+## Related task or RFC

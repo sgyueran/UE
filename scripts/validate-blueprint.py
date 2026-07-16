@@ -9,7 +9,7 @@ try: data=json.loads((ROOT/'docs/architecture/task-dependencies.json').read_text
 except Exception as e: print(f'Cannot read dependency data: {e}'); raise SystemExit(1)
 manifest=json.loads((ROOT/'blueprint.manifest.json').read_text())
 state=json.loads((ROOT/'.codex/project-state.json').read_text())
-if manifest.get('version')!='4.3': err('manifest version must be 4.3')
+if manifest.get('version')!='1.0.0': err('manifest version must be 1.0.0')
 if len(data)!=51: err(f'expected 51 tasks, found {len(data)}')
 profiles={p.stem for p in (ROOT/'docs/task-profiles').glob('*.md')}
 if len(profiles)!=7: err(f'expected 7 profiles, found {len(profiles)}')
@@ -63,6 +63,27 @@ for rel in ('docs/architecture/TASK-MATRIX.md','docs/architecture/DEPENDENCY-GRA
     t=(ROOT/rel).read_text()
     for tid in ids:
         if tid not in t: err(f'{rel} missing {tid}')
+
+# v1.0 Stable policy checks
+required_policies = [
+    "workflow.policy.md",
+    "execute.policy.md",
+    "review.policy.md",
+    "request-changes.policy.md",
+    "approve.policy.md",
+    "recovery.policy.md",
+    "merge.policy.md",
+    "visual-review.policy.md",
+    "decision-tree.md",
+]
+policy_dir = ROOT / ".codex" / "policies"
+for policy_name in required_policies:
+    policy_path = policy_dir / policy_name
+    if not policy_path.exists() or not policy_path.read_text(encoding="utf-8").strip():
+        errors.append(f"Missing or empty policy: .codex/policies/{policy_name}")
+if (ROOT / "prompts").exists():
+    errors.append("Legacy root prompts/ directory must be removed in v1.0 Stable")
+
 if errors:
     print(f'Blueprint validation failed with {len(errors)} error(s):')
     for e in errors: print('-',e)

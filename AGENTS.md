@@ -1,17 +1,31 @@
 # Codex Repository Instructions
 
-1. Run `python scripts/task-context.py TASK-XXX --write` and read the generated context before editing.
-2. Complete one task only unless an authorized batch passes `scripts/task-batch.py` checks.
-3. Edit only the task allowlist; preserve unknown pre-existing changes.
-4. Never invent portfolio facts. Use verified `content-input/` values or `TODO(USER_INPUT)`.
+1. Run `python scripts/task-context.py TASK-XXX --write --inspect` and read the generated context before editing.
+2. Complete one task only unless an authorized batch passes `scripts/task-batch.py`.
+3. Modify only Allowed Files and preserve unknown user changes.
+4. Never invent portfolio facts; use verified `content-input/` values or `TODO(USER_INPUT)`.
 5. Use npm, Node.js Active LTS, GSAP/ScrollTrigger/Lenis, and no Framer Motion.
 6. Keep Three.js out of the homepage initial bundle and provide documented fallbacks.
 7. Use `scripts/project-state.py`; never claim an unexecuted validation passed.
-8. Completion reports must be compact and factual. Do not restate the task or explain code visible in the diff.
-9. Do not commit or push unless explicitly authorized.
-10. Recover from project state, generated task context, dependency JSON, and Git—not chat history.
+8. Reports must be compact and factual.
+9. Never force-push or commit directly to `main`.
+10. Recover from repository evidence—not chat history.
 
-## Read Routing
+## Workflow authority
+
+Read `.codex/policies/workflow.policy.md` for every task.
+
+Route by outcome:
+
+- Execution: `.codex/policies/execute.policy.md`
+- Review: `.codex/policies/review.policy.md`
+- REQUEST CHANGES: `.codex/policies/request-changes.policy.md`
+- APPROVE: `.codex/policies/approve.policy.md`
+- Recovery: `.codex/policies/recovery.policy.md`
+- Merge: `.codex/policies/merge.policy.md`
+- Visual milestone: `.codex/policies/visual-review.policy.md`
+
+## Context routing
 
 - Every task: generated context + assigned Task Profile.
 - UI: design tokens and relevant page contract only.

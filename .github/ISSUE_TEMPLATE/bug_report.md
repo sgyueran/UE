@@ -1,24 +1,24 @@
 ---
 name: Bug report
-about: Report a reproducible problem
+about: Report a reproducible defect
 ---
 
 ## Description
 
-## Steps to Reproduce
+## Steps to reproduce
 
 1.
 2.
 3.
 
-## Expected Behavior
+## Expected behavior
 
-## Actual Behavior
+## Actual behavior
 
 ## Environment
 
 - OS:
 - Browser:
-- Node Version:
+- Node version:
 
-## Additional Notes
+## Evidence

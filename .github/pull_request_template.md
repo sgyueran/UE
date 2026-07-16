@@ -8,16 +8,16 @@ TASK-XXX
 
 ## Validation
 
-- [ ] Blueprint validation
-- [ ] Skills validation
-- [ ] Lint
-- [ ] Typecheck
-- [ ] Build (if required)
+- [ ] Required task commands were executed
+- [ ] Blueprint validation passed when required
+- [ ] No validation result was inferred or fabricated
 
 ## Scope
 
-- [ ] Only task-related files modified
+- [ ] Only Allowed Files were modified
+- [ ] No later task was implemented
+- [ ] Target branch is `develop`
 
 ## Notes
 
-Known limitations or follow-up work.
+Known limitations, risks, or follow-up work.
