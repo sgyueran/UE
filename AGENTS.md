@@ -9,7 +9,8 @@
 7. Use `scripts/project-state.py`; never claim an unexecuted validation passed.
 8. Reports must be compact and factual.
 9. Never force-push or commit directly to `main`.
-10. Recover from repository evidence—not chat history.
+10. Recover from repository evidence, not chat history.
+11. Sprint Workflow is planning-only; read `.codex/policies/sprint.policy.md` before Sprint work.
 
 ## Workflow authority
 
@@ -24,6 +25,7 @@ Route by outcome:
 - Recovery: `.codex/policies/recovery.policy.md`
 - Merge: `.codex/policies/merge.policy.md`
 - Visual milestone: `.codex/policies/visual-review.policy.md`
+- Sprint planning: `.codex/policies/sprint.policy.md`
 
 ## Context routing
 
@@ -34,3 +36,4 @@ Route by outcome:
 - 3D/media: media fallback and viewer contract only.
 - Release: deployment/security documents only.
 - Read the Master Blueprint only for first entry, recovery, architecture conflicts, or final release.
+- Sprint context may summarize multiple tasks, but it does not authorize multi-task execution by itself.
