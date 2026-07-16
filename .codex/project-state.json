@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "blueprintVersion": "4.2",
-  "currentTask": "TASK-038",
+  "currentTask": "TASK-042",
   "status": "completed",
   "completed": [
     "TASK-001",
@@ -41,26 +41,32 @@
     "TASK-035",
     "TASK-036",
     "TASK-037",
-    "TASK-038"
+    "TASK-038",
+    "TASK-039",
+    "TASK-040",
+    "TASK-041",
+    "TASK-042"
   ],
   "inProgress": null,
   "blocked": [],
   "waived": [],
   "lastValidation": {
-    "task": "TASK-038",
-    "timestamp": "2026-07-16T10:27:52.365157+00:00",
+    "task": "TASK-042",
+    "timestamp": "2026-07-16T10:52:52.084456+00:00",
     "commands": [
+      "python scripts/validate-blueprint.py",
       "npm run lint",
-      "npm run typecheck"
+      "npm run typecheck",
+      "npm run build"
     ],
     "result": "passed"
   },
-  "lastCommit": "2ee450c79c34fee06e25ad741e99854b6899438a",
+  "lastCommit": "d520972160f2ead58aff0e10ece92a80218ab1ed",
   "dirtyAtLastCheck": true,
   "contentIntegrity": "unverified",
   "referenceAudit": "completed",
   "releaseReady": false,
-  "baselineCommit": "2ee450c79c34fee06e25ad741e99854b6899438a",
+  "baselineCommit": "d520972160f2ead58aff0e10ece92a80218ab1ed",
   "preExistingChanges": [
     "M .codex/project-state.json",
     " M src/features/project-detail/ProjectDetail.tsx"

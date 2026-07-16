@@ -1,6 +1,10 @@
+import { useEffect, useRef, useState } from "react";
+
 import { getPublicPortfolioProjects } from "@/lib/content";
 import { TODO_USER_INPUT } from "@/types/content";
 import type { PortfolioProject, ProjectMedia } from "@/types/content";
+
+let scrollTriggerRegistered = false;
 
 type ProjectDetailState =
   | {
@@ -77,6 +81,17 @@ function getVerifiedTextItems(values: readonly string[]) {
 function getVerifiedPublicMedia(media: readonly ProjectMedia[]) {
   return media.find(
     (item) =>
+      item.publicationStatus === "public" &&
+      item.provenance.status === "verified" &&
+      isVerifiedText(item.src) &&
+      isVerifiedText(item.alt),
+  );
+}
+
+function getVerifiedPublicMediaByType(media: readonly ProjectMedia[], type: ProjectMedia["type"]) {
+  return media.filter(
+    (item) =>
+      item.type === type &&
       item.publicationStatus === "public" &&
       item.provenance.status === "verified" &&
       isVerifiedText(item.src) &&
@@ -345,8 +360,284 @@ function ProjectTechnicalStory({ project }: { project: PortfolioProject }) {
   );
 }
 
+function getNarrativeItems(project: PortfolioProject) {
+  return [
+    {
+      label: "01",
+      title: "Problem frame",
+      body: project.problem,
+    },
+    {
+      label: "02",
+      title: "Constraint frame",
+      body: project.constraints,
+    },
+    {
+      label: "03",
+      title: "System direction",
+      body: project.systemDesign,
+    },
+    {
+      label: "04",
+      title: "Implementation",
+      body: project.implementation,
+    },
+    {
+      label: "05",
+      title: "Optimization",
+      body: project.optimization,
+    },
+    {
+      label: "06",
+      title: "Reflection",
+      body: project.reflection,
+    },
+  ].filter((item) => isVerifiedText(item.body));
+}
+
+function ProjectScrollNarrative({ project }: { project: PortfolioProject }) {
+  const rootRef = useRef<HTMLElement>(null);
+  const narrativeItems = getNarrativeItems(project);
+
+  useEffect(() => {
+    const root = rootRef.current;
+
+    if (!root || narrativeItems.length === 0) {
+      return undefined;
+    }
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const mobileLayout = window.matchMedia("(max-width: 1023px)").matches;
+
+    if (reducedMotion || mobileLayout) {
+      return undefined;
+    }
+
+    let disposed = false;
+    let context: { revert: () => void } | null = null;
+
+    void Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(([gsapModule, scrollTriggerModule]) => {
+      if (disposed) {
+        return;
+      }
+
+      const { gsap } = gsapModule;
+      const { ScrollTrigger } = scrollTriggerModule;
+
+      if (!scrollTriggerRegistered) {
+        gsap.registerPlugin(ScrollTrigger);
+        scrollTriggerRegistered = true;
+      }
+
+      context = gsap.context(() => {
+        const panels = gsap.utils.toArray<HTMLElement>("[data-project-narrative-panel]");
+
+        panels.forEach((panel) => {
+          gsap.fromTo(
+            panel,
+            { autoAlpha: 0.72, y: 24 },
+            {
+              autoAlpha: 1,
+              duration: 0.42,
+              ease: "power2.out",
+              scrollTrigger: {
+                end: "top 45%",
+                start: "top 82%",
+                toggleActions: "play none none reverse",
+                trigger: panel,
+              },
+              y: 0,
+            },
+          );
+        });
+      }, root);
+    });
+
+    return () => {
+      disposed = true;
+      context?.revert();
+    };
+  }, [narrativeItems.length]);
+
+  if (narrativeItems.length === 0) {
+    return (
+      <section aria-labelledby="project-scroll-narrative-title" className="mt-lg rounded-lg border border-dashed border-border bg-card/60 p-lg">
+        <p className="font-mono text-xs uppercase tracking-[0.16em] text-primary">Scroll narrative</p>
+        <h2 className="mt-sm text-2xl font-semibold text-text" id="project-scroll-narrative-title">
+          Narrative unavailable
+        </h2>
+        <p className="mt-md max-w-[42rem] text-sm leading-6 text-muted">
+          Verified technical narrative fields are unavailable. The page keeps its normal document flow without empty sticky panels.
+        </p>
+      </section>
+    );
+  }
+
+  return (
+    <section aria-labelledby="project-scroll-narrative-title" className="mt-lg grid gap-lg lg:grid-cols-[18rem_minmax(0,1fr)]" ref={rootRef}>
+      <aside className="self-start rounded-lg border border-border bg-card p-lg lg:sticky lg:top-24">
+        <p className="font-mono text-xs uppercase tracking-[0.16em] text-primary">Scroll narrative</p>
+        <h2 className="mt-sm text-2xl font-semibold text-text" id="project-scroll-narrative-title">
+          Technical reading path
+        </h2>
+        <p className="mt-md text-sm leading-6 text-muted">
+          Sticky context is a reading aid only. Content remains in normal order on mobile and when reduced motion is requested.
+        </p>
+      </aside>
+
+      <div className="grid gap-md">
+        {narrativeItems.map((item) => (
+          <section className="rounded-lg border border-border bg-card p-lg" data-project-narrative-panel key={item.label}>
+            <p className="font-mono text-xs uppercase tracking-[0.16em] text-primary">{item.label}</p>
+            <h3 className="mt-sm text-2xl font-semibold text-text">{item.title}</h3>
+            <p className="mt-md text-sm leading-6 text-muted">{item.body}</p>
+          </section>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ProjectGallery({ project }: { project: PortfolioProject }) {
+  const images = getVerifiedPublicMediaByType(project.media, "image");
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const activeImage = activeIndex === null ? null : images[activeIndex];
+
+  function closeLightbox() {
+    setActiveIndex(null);
+  }
+
+  function openLightbox(index: number, trigger: HTMLButtonElement) {
+    triggerRef.current = trigger;
+    setActiveIndex(index);
+  }
+
+  function showPreviousImage() {
+    setActiveIndex((currentIndex) => (currentIndex === null ? currentIndex : (currentIndex + images.length - 1) % images.length));
+  }
+
+  function showNextImage() {
+    setActiveIndex((currentIndex) => (currentIndex === null ? currentIndex : (currentIndex + 1) % images.length));
+  }
+
+  useEffect(() => {
+    const dialog = dialogRef.current;
+
+    if (!dialog) {
+      return;
+    }
+
+    if (activeImage && !dialog.open) {
+      dialog.showModal();
+      closeButtonRef.current?.focus();
+      return;
+    }
+
+    if (!activeImage && dialog.open) {
+      dialog.close();
+      triggerRef.current?.focus();
+    }
+  }, [activeImage]);
+
+  if (images.length === 0) {
+    return (
+      <section aria-labelledby="project-gallery-title" className="mt-lg rounded-lg border border-dashed border-border bg-card/60 p-lg">
+        <p className="font-mono text-xs uppercase tracking-[0.16em] text-primary">Gallery</p>
+        <h2 className="mt-sm text-2xl font-semibold text-text" id="project-gallery-title">
+          Image gallery unavailable
+        </h2>
+        <p className="mt-md max-w-[42rem] text-sm leading-6 text-muted">
+          No verified public images are approved for this project. Private, draft, TODO, or permission-pending image URLs are not rendered.
+        </p>
+      </section>
+    );
+  }
+
+  return (
+    <section aria-labelledby="project-gallery-title" className="mt-lg">
+      <div className="max-w-[44rem]">
+        <p className="font-mono text-xs uppercase tracking-[0.16em] text-primary">Gallery</p>
+        <h2 className="mt-sm text-3xl font-semibold text-text" id="project-gallery-title">
+          Verified project images
+        </h2>
+        <p className="mt-md text-sm leading-6 text-muted">
+          Only approved public images are available here. The lightbox uses native dialog behavior and restores focus on close.
+        </p>
+      </div>
+
+      <div className="mt-lg grid gap-md sm:grid-cols-2 lg:grid-cols-3">
+        {images.map((image, index) => (
+          <button
+            className="group overflow-hidden rounded-lg border border-border bg-card text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            key={image.id}
+            onClick={(event) => {
+              openLightbox(index, event.currentTarget);
+            }}
+            type="button"
+          >
+            <img alt={image.alt} className="aspect-[4/3] w-full object-cover transition-transform duration-200 group-hover:scale-[1.02]" loading="lazy" src={image.src} />
+            <span className="block border-t border-border px-md py-sm text-xs leading-5 text-muted">{image.alt}</span>
+          </button>
+        ))}
+      </div>
+
+      <dialog
+        aria-labelledby="project-lightbox-title"
+        className="w-[min(68rem,calc(100vw-2rem))] rounded-lg border border-border bg-card p-0 text-text backdrop:bg-background/80"
+        onCancel={closeLightbox}
+        onClose={closeLightbox}
+        onKeyDown={(event) => {
+          if (event.key === "ArrowLeft") {
+            event.preventDefault();
+            showPreviousImage();
+          }
+
+          if (event.key === "ArrowRight") {
+            event.preventDefault();
+            showNextImage();
+          }
+        }}
+        ref={dialogRef}
+      >
+        {activeImage ? (
+          <div className="grid max-h-[90vh] overflow-auto">
+            <div className="flex items-center justify-between gap-md border-b border-border p-md">
+              <h3 className="text-sm font-semibold text-text" id="project-lightbox-title">
+                Project image {activeIndex === null ? "" : activeIndex + 1} of {images.length}
+              </h3>
+              <button
+                className="rounded-full border border-border px-sm py-xs text-sm text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                onClick={closeLightbox}
+                ref={closeButtonRef}
+                type="button"
+              >
+                Close
+              </button>
+            </div>
+            <img alt={activeImage.alt} className="max-h-[70vh] w-full object-contain bg-background" src={activeImage.src} />
+            <div className="flex flex-col gap-sm border-t border-border p-md sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm leading-6 text-muted">{activeImage.alt}</p>
+              <div className="flex gap-sm">
+                <button className="rounded-full border border-border px-md py-xs text-sm text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" onClick={showPreviousImage} type="button">
+                  Previous
+                </button>
+                <button className="rounded-full border border-border px-md py-xs text-sm text-text focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary" onClick={showNextImage} type="button">
+                  Next
+                </button>
+              </div>
+            </div>
+          </div>
+        ) : null}
+      </dialog>
+    </section>
+  );
+}
+
 function ProjectHero({ project }: { project: PortfolioProject }) {
-  const heroMedia = getVerifiedPublicMedia(project.media);
+  const heroMedia = getVerifiedPublicMediaByType(project.media, "image")[0] ?? getVerifiedPublicMedia(project.media.filter((media) => media.type !== "video"));
 
   return (
     <header className="grid gap-xl lg:grid-cols-[minmax(0,1fr)_minmax(24rem,0.9fr)] lg:items-end">
@@ -357,6 +648,119 @@ function ProjectHero({ project }: { project: PortfolioProject }) {
       </div>
       <ProjectHeroMedia media={heroMedia} />
     </header>
+  );
+}
+
+function ProjectVideo({ project }: { project: PortfolioProject }) {
+  const videos = getVerifiedPublicMediaByType(project.media, "video");
+  const videoRefs = useRef(new Map<string, HTMLVideoElement>());
+  const [failedVideoIds, setFailedVideoIds] = useState<ReadonlySet<string>>(() => new Set<string>());
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting && entry.target instanceof HTMLVideoElement) {
+            entry.target.pause();
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    videoRefs.current.forEach((video) => {
+      observer.observe(video);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [videos]);
+
+  function pauseOtherVideos(activeVideo: HTMLVideoElement) {
+    videoRefs.current.forEach((video) => {
+      if (video !== activeVideo) {
+        video.pause();
+      }
+    });
+  }
+
+  function markVideoFailed(videoId: string) {
+    setFailedVideoIds((currentIds) => new Set(currentIds).add(videoId));
+  }
+
+  if (videos.length === 0) {
+    return (
+      <section aria-labelledby="project-video-title" className="mt-lg rounded-lg border border-dashed border-border bg-card/60 p-lg">
+        <p className="font-mono text-xs uppercase tracking-[0.16em] text-primary">Video</p>
+        <h2 className="mt-sm text-2xl font-semibold text-text" id="project-video-title">
+          Video unavailable
+        </h2>
+        <p className="mt-md max-w-[42rem] text-sm leading-6 text-muted">
+          No verified public video is approved for this project. Private, draft, TODO, or permission-pending video URLs are not rendered.
+        </p>
+      </section>
+    );
+  }
+
+  return (
+    <section aria-labelledby="project-video-title" className="mt-lg">
+      <div className="max-w-[44rem]">
+        <p className="font-mono text-xs uppercase tracking-[0.16em] text-primary">Video</p>
+        <h2 className="mt-sm text-3xl font-semibold text-text" id="project-video-title">
+          Verified project video
+        </h2>
+        <p className="mt-md text-sm leading-6 text-muted">
+          Videos load only from approved public sources. Playback is user-controlled, muted-safe, and limited to one active video at a time.
+        </p>
+      </div>
+
+      <div className="mt-lg grid gap-lg">
+        {videos.map((video) => {
+          const poster = isVerifiedText(video.poster ?? "") ? video.poster : undefined;
+          const hasFailed = failedVideoIds.has(video.id);
+
+          return (
+            <figure className="overflow-hidden rounded-lg border border-border bg-card" key={video.id}>
+              {hasFailed ? (
+                <div className="flex min-h-[18rem] flex-col justify-end bg-surface p-lg">
+                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted">Video failed</p>
+                  <p className="mt-sm max-w-[32rem] text-sm leading-6 text-muted">
+                    The approved video could not be loaded. Core project text remains available without media playback.
+                  </p>
+                </div>
+              ) : (
+                <video
+                  className="aspect-video w-full bg-background object-contain"
+                  controls
+                  muted
+                  onError={() => {
+                    markVideoFailed(video.id);
+                  }}
+                  onPlay={(event) => {
+                    pauseOtherVideos(event.currentTarget);
+                  }}
+                  playsInline
+                  poster={poster}
+                  preload="metadata"
+                  ref={(element) => {
+                    if (element) {
+                      videoRefs.current.set(video.id, element);
+                    } else {
+                      videoRefs.current.delete(video.id);
+                    }
+                  }}
+                  src={video.src}
+                >
+                  <track kind="captions" label="Captions unavailable" />
+                </video>
+              )}
+              <figcaption className="border-t border-border px-md py-sm text-xs leading-5 text-muted">{video.alt}</figcaption>
+            </figure>
+          );
+        })}
+      </div>
+    </section>
   );
 }
 
@@ -395,6 +799,9 @@ function ProjectReady({ project }: { project: PortfolioProject }) {
       </div>
 
       <ProjectTechnicalStory project={project} />
+      <ProjectScrollNarrative project={project} />
+      <ProjectGallery project={project} />
+      <ProjectVideo project={project} />
     </article>
   );
 }
