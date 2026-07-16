@@ -3,8 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import { getPublicPortfolioProjects } from "@/lib/content";
 import { TODO_USER_INPUT } from "@/types/content";
 import type { PortfolioProject, ProjectMedia } from "@/types/content";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-let scrollTriggerRegistered = false;
+gsap.registerPlugin(ScrollTrigger);
 
 type ProjectDetailState =
   | {
@@ -416,42 +418,32 @@ function ProjectScrollNarrative({ project }: { project: PortfolioProject }) {
     let disposed = false;
     let context: { revert: () => void } | null = null;
 
-    void Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(([gsapModule, scrollTriggerModule]) => {
-      if (disposed) {
-        return;
-      }
+    if (disposed) {
+      return undefined;
+    }
 
-      const { gsap } = gsapModule;
-      const { ScrollTrigger } = scrollTriggerModule;
+    context = gsap.context(() => {
+      const panels = gsap.utils.toArray<HTMLElement>("[data-project-narrative-panel]");
 
-      if (!scrollTriggerRegistered) {
-        gsap.registerPlugin(ScrollTrigger);
-        scrollTriggerRegistered = true;
-      }
-
-      context = gsap.context(() => {
-        const panels = gsap.utils.toArray<HTMLElement>("[data-project-narrative-panel]");
-
-        panels.forEach((panel) => {
-          gsap.fromTo(
-            panel,
-            { autoAlpha: 0.72, y: 24 },
-            {
-              autoAlpha: 1,
-              duration: 0.42,
-              ease: "power2.out",
-              scrollTrigger: {
-                end: "top 45%",
-                start: "top 82%",
-                toggleActions: "play none none reverse",
-                trigger: panel,
-              },
-              y: 0,
+      panels.forEach((panel) => {
+        gsap.fromTo(
+          panel,
+          { autoAlpha: 0.72, y: 24 },
+          {
+            autoAlpha: 1,
+            duration: 0.42,
+            ease: "power2.out",
+            scrollTrigger: {
+              end: "top 45%",
+              start: "top 82%",
+              toggleActions: "play none none reverse",
+              trigger: panel,
             },
-          );
-        });
-      }, root);
-    });
+            y: 0,
+          },
+        );
+      });
+    }, root);
 
     return () => {
       disposed = true;

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 
 import { PublicLayout } from "@/layouts/PublicLayout";
 import { SeoHead } from "@/lib/seo";
@@ -31,7 +31,15 @@ export function AppRouter() {
     <ErrorBoundary>
       <SeoHead path={path} />
       <PublicLayout currentPath={path}>
-        <RouteComponent />
+        <Suspense
+          fallback={
+            <main className="app-container py-section">
+              <p className="text-sm text-muted">Loading…</p>
+            </main>
+          }
+        >
+          <RouteComponent />
+        </Suspense>
       </PublicLayout>
     </ErrorBoundary>
   );
