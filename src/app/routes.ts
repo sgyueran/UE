@@ -1,7 +1,9 @@
 import type { ComponentType } from "react";
 
+import { AboutPage } from "@/pages/AboutPage";
 import { HomePage } from "@/pages/HomePage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
+import { ProjectsPage } from "@/pages/ProjectsPage";
 
 export type AppRoute = {
   path: string;
@@ -14,6 +16,16 @@ export const routes = [
     path: "/",
     label: "Home",
     component: HomePage,
+  },
+  {
+    path: "/projects",
+    label: "Projects",
+    component: ProjectsPage,
+  },
+  {
+    path: "/about",
+    label: "About",
+    component: AboutPage,
   },
 ] as const satisfies readonly AppRoute[];
 
