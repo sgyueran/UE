@@ -4,12 +4,12 @@ The project uses **Node.js Active LTS and npm only**. TASK-001/TASK-002 must res
 
 | Tool | Required Policy | Resolved Version |
 |---|---|---|
-| Node.js | Active LTS supported by selected Vite | TODO |
-| npm | Bundled with selected Node LTS; `package-lock.json` required | TODO |
-| React / React DOM | Matching exact versions | TODO |
-| Vite | Compatible with Node and React | TODO |
-| TypeScript | Strict mode | TODO |
-| Tailwind CSS | Use the workflow required by the installed major version; do not mix legacy and current setup | TODO |
+| Node.js | Active LTS supported by selected Vite | 24.14.0 |
+| npm | Bundled with selected Node LTS; `package-lock.json` required | 11.6.2 |
+| React / React DOM | Matching exact versions | 19.2.7 / 19.2.7 |
+| Vite | Compatible with Node and React | 6.4.3 |
+| TypeScript | Strict mode | 5.9.3 |
+| Tailwind CSS | Use the workflow required by the installed major version; do not mix legacy and current setup | 4.3.2 with `@tailwindcss/vite` 4.3.2 |
 | React Router | APIs must match installed major version | TODO |
 | GSAP / ScrollTrigger / Lenis | Sole animation stack; verified integration versions | TODO |
 | Three.js / R3F / Drei | Mutually compatible and lazy-loaded | TODO |
