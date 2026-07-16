@@ -1,0 +1,1 @@
+export { AboutNarrative } from "./AboutNarrative";

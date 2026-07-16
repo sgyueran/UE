@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "blueprintVersion": "4.2",
-  "currentTask": "TASK-030",
+  "currentTask": "TASK-034",
   "status": "completed",
   "completed": [
     "TASK-001",
@@ -34,33 +34,33 @@
     "TASK-024",
     "TASK-028",
     "TASK-029",
-    "TASK-030"
+    "TASK-030",
+    "TASK-032",
+    "TASK-033",
+    "TASK-034"
   ],
   "inProgress": null,
   "blocked": [],
   "waived": [],
   "lastValidation": {
-    "task": "TASK-030",
-    "timestamp": "2026-07-16T08:45:26.595017+00:00",
+    "task": "TASK-034",
+    "timestamp": "2026-07-16T08:48:28.891483+00:00",
     "commands": [
-      "python scripts/validate-blueprint.py",
       "npm run lint",
-      "npm run typecheck",
-      "npm run build"
+      "npm run typecheck"
     ],
     "result": "passed"
   },
-  "lastCommit": "197736955ebdc709f2e822fe332abfb3490eb1f4",
+  "lastCommit": "f3e9c160398d94eafe09bda10621e5ff017e445f",
   "dirtyAtLastCheck": true,
   "contentIntegrity": "unverified",
   "referenceAudit": "completed",
   "releaseReady": false,
-  "baselineCommit": "197736955ebdc709f2e822fe332abfb3490eb1f4",
+  "baselineCommit": "f3e9c160398d94eafe09bda10621e5ff017e445f",
   "preExistingChanges": [
     "M .codex/project-state.json",
-    " M src/features/home/HomeFeaturedProjects.tsx",
-    " M src/features/home/HomeHero.tsx",
-    "?? src/features/home/HomeProjectPreviewMedia.tsx",
-    "?? src/features/home/HomeProjectRail.tsx"
+    " M src/features/projects/ProjectsListing.tsx",
+    " M src/features/projects/index.ts",
+    "?? src/features/projects/ProjectListMediaPreview.tsx"
   ]
 }
