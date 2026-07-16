@@ -1,0 +1,4 @@
+interface:
+  display_name: "GSAP Motion Engineering"
+  short_description: "Create safe, performant scroll motion"
+  default_prompt: "Use the GSAP motion skill, including cleanup and reduced-motion fallbacks."

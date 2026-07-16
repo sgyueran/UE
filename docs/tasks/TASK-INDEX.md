@@ -1,0 +1,55 @@
+# Codex Task Index
+
+This index is generated from the authoritative dependency model. Run `python scripts/validate-blueprint.py` before and after each task.
+
+- [ ] [TASK-001](./TASK-001.md) — Initialize Vite React TypeScript project
+- [ ] [TASK-002](./TASK-002.md) — Configure Tailwind CSS using the selected major-version workflow
+- [ ] [TASK-003](./TASK-003.md) — Configure ESLint, Prettier and path aliases
+- [ ] [TASK-004](./TASK-004.md) — Create design tokens and global styles
+- [ ] [TASK-005](./TASK-005.md) — Build reusable Button and Badge components
+- [ ] [TASK-006](./TASK-006.md) — Build GlassPanel and SectionTitle components
+- [ ] [TASK-007](./TASK-007.md) — Create application router
+- [ ] [TASK-008](./TASK-008.md) — Build Header, Footer and PublicLayout
+- [ ] [TASK-009](./TASK-009.md) — Build responsive MobileMenu
+- [ ] [TASK-010](./TASK-010.md) — Add error boundary and 404 page
+- [ ] [TASK-011](./TASK-011.md) — Set up GSAP, ScrollTrigger and animation config
+- [ ] [TASK-012](./TASK-012.md) — Create Lenis SmoothScrollProvider
+- [ ] [TASK-013](./TASK-013.md) — Create ReducedMotionProvider
+- [ ] [TASK-014](./TASK-014.md) — Build AppLoader
+- [ ] [TASK-015](./TASK-015.md) — Build PageTransition overlay
+- [ ] [TASK-016](./TASK-016.md) — Create CursorContext and CustomCursor
+- [ ] [TASK-017](./TASK-017.md) — Build MagneticButton
+- [ ] [TASK-018](./TASK-018.md) — Create profile and navigation data models
+- [ ] [TASK-019](./TASK-019.md) — Create project TypeScript data model
+- [ ] [TASK-020](./TASK-020.md) — Add sample project data and helper utilities
+- [ ] [TASK-021](./TASK-021.md) — Integrate verified portfolio content
+- [ ] [TASK-022](./TASK-022.md) — Audit reference UI and define adaptation rules
+- [ ] [TASK-023](./TASK-023.md) — Build homepage Hero layout
+- [ ] [TASK-024](./TASK-024.md) — Add Hero title animation and media parallax
+- [ ] [TASK-025](./TASK-025.md) — Build Skills and Work Direction sections
+- [ ] [TASK-026](./TASK-026.md) — Build Contact and Resume sections
+- [ ] [TASK-027](./TASK-027.md) — Build featured editorial project showcase
+- [ ] [TASK-028](./TASK-028.md) — Build hover video preview behavior
+- [ ] [TASK-029](./TASK-029.md) — Build horizontal project rail desktop layout
+- [ ] [TASK-030](./TASK-030.md) — Add ScrollTrigger horizontal motion and mobile fallback
+- [ ] [TASK-031](./TASK-031.md) — Build projects listing page
+- [ ] [TASK-032](./TASK-032.md) — Add category and technology filters
+- [ ] [TASK-033](./TASK-033.md) — Build hover media preview for project list
+- [ ] [TASK-034](./TASK-034.md) — Build About page
+- [ ] [TASK-035](./TASK-035.md) — Build project detail page structure
+- [ ] [TASK-036](./TASK-036.md) — Build ProjectHero and metadata section
+- [ ] [TASK-037](./TASK-037.md) — Build responsibilities and technology sections
+- [ ] [TASK-038](./TASK-038.md) — Build technical challenge sections
+- [ ] [TASK-039](./TASK-039.md) — Build project image gallery and lightbox
+- [ ] [TASK-040](./TASK-040.md) — Build project video component
+- [ ] [TASK-041](./TASK-041.md) — Build sticky project information and scroll narrative
+- [ ] [TASK-042](./TASK-042.md) — Build lazy-loaded GLB viewer
+- [ ] [TASK-043](./TASK-043.md) — Implement SEO and social metadata
+- [ ] [TASK-044](./TASK-044.md) — Validate portfolio content and publication safety
+- [ ] [TASK-045](./TASK-045.md) — Optimize media and frontend performance
+- [ ] [TASK-046](./TASK-046.md) — Run accessibility audit and remediation
+- [ ] [TASK-047](./TASK-047.md) — Add Vitest unit and component tests
+- [ ] [TASK-048](./TASK-048.md) — Add Playwright critical-path and visual tests
+- [ ] [TASK-049](./TASK-049.md) — Configure GitHub Actions continuous integration
+- [ ] [TASK-050](./TASK-050.md) — Create 1Panel and Nginx deployment configuration
+- [ ] [TASK-051](./TASK-051.md) — Perform final release validation

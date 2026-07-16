@@ -1,0 +1,4 @@
+interface:
+  display_name: "Playwright Portfolio QA"
+  short_description: "Test critical portfolio journeys"
+  default_prompt: "Use Playwright to verify the assigned portfolio flow across required viewports."

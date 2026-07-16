@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI Reference Implementation"
+  short_description: "Translate references into original UI systems"
+  default_prompt: "Analyze the reference, extract its design logic, and implement an original portfolio-appropriate version."

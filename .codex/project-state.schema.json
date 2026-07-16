@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "blueprintVersion",
+    "currentTask",
+    "status",
+    "completed",
+    "inProgress",
+    "blocked",
+    "waived",
+    "lastValidation",
+    "lastCommit",
+    "dirtyAtLastCheck",
+    "contentIntegrity",
+    "referenceAudit",
+    "releaseReady"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "blueprintVersion": {
+      "const": "4.1"
+    },
+    "currentTask": {
+      "type": "string",
+      "pattern": "^TASK-(00[1-9]|0[1-4][0-9]|05[0-1])$"
+    },
+    "status": {
+      "enum": [
+        "not_started",
+        "in_progress",
+        "implemented",
+        "validating",
+        "completed",
+        "blocked"
+      ]
+    },
+    "completed": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^TASK-\\d{3}$"
+      }
+    },
+    "inProgress": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "blocked": {
+      "type": "array"
+    },
+    "waived": {
+      "type": "array"
+    },
+    "lastValidation": {
+      "type": "object"
+    },
+    "lastCommit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "dirtyAtLastCheck": {
+      "type": "boolean"
+    },
+    "contentIntegrity": {
+      "enum": [
+        "unverified",
+        "blocked",
+        "verified"
+      ]
+    },
+    "referenceAudit": {
+      "enum": [
+        "not_started",
+        "in_progress",
+        "completed"
+      ]
+    },
+    "releaseReady": {
+      "type": "boolean"
+    }
+  }
+}

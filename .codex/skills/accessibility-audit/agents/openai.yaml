@@ -1,0 +1,4 @@
+interface:
+  display_name: "Accessibility Audit"
+  short_description: "Verify keyboard, semantics, focus, and motion"
+  default_prompt: "Perform an accessibility audit and fix only issues within the assigned scope."

@@ -1,0 +1,33 @@
+{
+  "version": "4.3",
+  "project": "UE Portfolio AI Blueprint",
+  "edition": "Context-Efficient",
+  "skills": [
+    "accessibility-audit",
+    "frontend-performance-audit",
+    "gsap-motion-engineering",
+    "media-asset-pipeline",
+    "playwright-portfolio-qa",
+    "portfolio-content-engineering",
+    "react-three-fiber-viewer",
+    "react-typescript-architecture",
+    "tailwind-design-system",
+    "ui-reference-implementation"
+  ],
+  "skill_count": 10,
+  "task_count": 51,
+  "consistency_validator": "scripts/validate-blueprint.py",
+  "dependency_source": "docs/architecture/task-dependencies.json",
+  "state_tool": "scripts/project-state.py",
+  "package_manager": "npm",
+  "motion_stack": [
+    "GSAP",
+    "ScrollTrigger",
+    "Lenis"
+  ],
+  "taskProfiles": 7,
+  "contextGenerator": "scripts/task-context.py",
+  "batchValidator": "scripts/task-batch.py",
+  "taskWordsApprox": 6194,
+  "previousTaskWordsApprox": 21356
+}

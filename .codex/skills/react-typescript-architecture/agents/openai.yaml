@@ -1,0 +1,4 @@
+interface:
+  display_name: "React TypeScript Architecture"
+  short_description: "Build strict, maintainable React architecture"
+  default_prompt: "Apply the React TypeScript architecture skill to the current task while following the repository blueprint."

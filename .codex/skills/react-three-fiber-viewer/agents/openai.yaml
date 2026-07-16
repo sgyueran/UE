@@ -1,0 +1,4 @@
+interface:
+  display_name: "React Three Fiber Viewer"
+  short_description: "Build a robust lazy GLB viewer"
+  default_prompt: "Use the R3F viewer skill and keep Three.js out of the initial homepage bundle."

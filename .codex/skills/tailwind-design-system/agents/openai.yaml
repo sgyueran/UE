@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tailwind Design System"
+  short_description: "Apply consistent tokens and responsive UI"
+  default_prompt: "Use the Tailwind design system skill and preserve the repository's existing visual language."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Frontend Performance Audit"
+  short_description: "Protect load speed and runtime performance"
+  default_prompt: "Audit the current change for bundle, media, rendering, and interaction performance."

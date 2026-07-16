@@ -1,0 +1,1803 @@
+{
+  "TASK-001": {
+    "title": "Initialize Vite React TypeScript project",
+    "dependsOn": [],
+    "area": "Foundation",
+    "risk": "Low",
+    "profile": "foundation",
+    "skills": [
+      "react-typescript-architecture"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`package.json`",
+      "`package-lock.json`",
+      "`vite.config.*`",
+      "`tsconfig*.json`",
+      "`index.html`",
+      "`src/main.*`",
+      "`src/App.*`",
+      "`.gitignore`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CODING-STANDARD.md"
+    ],
+    "acceptance": [
+      "The selected npm workflow is reproducible from a clean checkout.",
+      "Strict TypeScript and the configured quality commands complete without errors.",
+      "No unrelated feature UI is introduced."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-002": {
+    "title": "Configure Tailwind CSS using the selected major-version workflow",
+    "dependsOn": [
+      "TASK-001"
+    ],
+    "area": "Foundation",
+    "risk": "Low",
+    "profile": "foundation",
+    "skills": [
+      "tailwind-design-system"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`package.json`",
+      "`package-lock.json`",
+      "`src/styles/**`",
+      "`src/main.*`",
+      "`postcss.config.*`",
+      "`tailwind.config.*`",
+      "`vite.config.*`",
+      "`docs/architecture/TECH-STACK-VERSIONS.md`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CODING-STANDARD.md"
+    ],
+    "acceptance": [
+      "The selected npm workflow is reproducible from a clean checkout.",
+      "Strict TypeScript and the configured quality commands complete without errors.",
+      "No unrelated feature UI is introduced."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-003": {
+    "title": "Configure ESLint, Prettier and path aliases",
+    "dependsOn": [
+      "TASK-002"
+    ],
+    "area": "Foundation",
+    "risk": "Low",
+    "profile": "foundation",
+    "skills": [
+      "react-typescript-architecture"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`package.json`",
+      "`package-lock.json`",
+      "`eslint.config.*`",
+      "`.prettier*`",
+      "`tsconfig*.json`",
+      "`vite.config.*`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CODING-STANDARD.md"
+    ],
+    "acceptance": [
+      "The selected npm workflow is reproducible from a clean checkout.",
+      "Strict TypeScript and the configured quality commands complete without errors.",
+      "No unrelated feature UI is introduced."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-004": {
+    "title": "Create design tokens and global styles",
+    "dependsOn": [
+      "TASK-003"
+    ],
+    "area": "Foundation",
+    "risk": "Low",
+    "profile": "foundation",
+    "skills": [
+      "tailwind-design-system"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`package.json`",
+      "`package-lock.json`",
+      "`vite.config.*`",
+      "`tsconfig*.json`",
+      "`src/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CODING-STANDARD.md"
+    ],
+    "acceptance": [
+      "The selected npm workflow is reproducible from a clean checkout.",
+      "Strict TypeScript and the configured quality commands complete without errors.",
+      "No unrelated feature UI is introduced."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-005": {
+    "title": "Build reusable Button and Badge components",
+    "dependsOn": [
+      "TASK-004"
+    ],
+    "area": "Foundation",
+    "risk": "Medium",
+    "profile": "foundation",
+    "skills": [
+      "react-typescript-architecture"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`package.json`",
+      "`package-lock.json`",
+      "`vite.config.*`",
+      "`tsconfig*.json`",
+      "`src/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CODING-STANDARD.md"
+    ],
+    "acceptance": [
+      "The selected npm workflow is reproducible from a clean checkout.",
+      "Strict TypeScript and the configured quality commands complete without errors.",
+      "No unrelated feature UI is introduced."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-006": {
+    "title": "Build GlassPanel and SectionTitle components",
+    "dependsOn": [
+      "TASK-005"
+    ],
+    "area": "Foundation",
+    "risk": "Medium",
+    "profile": "foundation",
+    "skills": [
+      "react-typescript-architecture"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`package.json`",
+      "`package-lock.json`",
+      "`vite.config.*`",
+      "`tsconfig*.json`",
+      "`src/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CODING-STANDARD.md"
+    ],
+    "acceptance": [
+      "The selected npm workflow is reproducible from a clean checkout.",
+      "Strict TypeScript and the configured quality commands complete without errors.",
+      "No unrelated feature UI is introduced."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-007": {
+    "title": "Create application router",
+    "dependsOn": [
+      "TASK-003"
+    ],
+    "area": "Routing",
+    "risk": "Low",
+    "profile": "foundation",
+    "skills": [
+      "react-typescript-architecture"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/app/**`",
+      "`src/layouts/**`",
+      "`src/pages/**`",
+      "`src/components/navigation/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CODING-STANDARD.md"
+    ],
+    "acceptance": [
+      "All affected routes render directly and after client-side navigation.",
+      "Keyboard focus remains visible and mobile navigation has a non-hover interaction path.",
+      "Unknown routes render the dedicated 404 experience without console errors."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-008": {
+    "title": "Build Header, Footer and PublicLayout",
+    "dependsOn": [
+      "TASK-006",
+      "TASK-007"
+    ],
+    "area": "Routing",
+    "risk": "Medium",
+    "profile": "foundation",
+    "skills": [
+      "react-typescript-architecture"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/app/**`",
+      "`src/layouts/**`",
+      "`src/pages/**`",
+      "`src/components/navigation/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CODING-STANDARD.md"
+    ],
+    "acceptance": [
+      "All affected routes render directly and after client-side navigation.",
+      "Keyboard focus remains visible and mobile navigation has a non-hover interaction path.",
+      "Unknown routes render the dedicated 404 experience without console errors."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-009": {
+    "title": "Build responsive MobileMenu",
+    "dependsOn": [
+      "TASK-008"
+    ],
+    "area": "Routing",
+    "risk": "Medium",
+    "profile": "foundation",
+    "skills": [
+      "react-typescript-architecture"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/app/**`",
+      "`src/layouts/**`",
+      "`src/pages/**`",
+      "`src/components/navigation/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CODING-STANDARD.md"
+    ],
+    "acceptance": [
+      "All affected routes render directly and after client-side navigation.",
+      "Keyboard focus remains visible and mobile navigation has a non-hover interaction path.",
+      "Unknown routes render the dedicated 404 experience without console errors."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-010": {
+    "title": "Add error boundary and 404 page",
+    "dependsOn": [
+      "TASK-007",
+      "TASK-008"
+    ],
+    "area": "Routing",
+    "risk": "Medium",
+    "profile": "foundation",
+    "skills": [
+      "react-typescript-architecture"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/app/**`",
+      "`src/layouts/**`",
+      "`src/pages/**`",
+      "`src/components/navigation/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CODING-STANDARD.md"
+    ],
+    "acceptance": [
+      "All affected routes render directly and after client-side navigation.",
+      "Keyboard focus remains visible and mobile navigation has a non-hover interaction path.",
+      "Unknown routes render the dedicated 404 experience without console errors."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-011": {
+    "title": "Set up GSAP, ScrollTrigger and animation config",
+    "dependsOn": [
+      "TASK-004"
+    ],
+    "area": "Motion",
+    "risk": "Medium",
+    "profile": "motion-interaction",
+    "skills": [
+      "gsap-motion-engineering"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/app/providers/**`",
+      "`src/lib/motion/**`",
+      "`src/components/motion/**`",
+      "`src/styles/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/MASTER-BLUEPRINT.md"
+    ],
+    "acceptance": [
+      "The behavior is centralized, cleaned up on unmount, and does not create duplicate listeners.",
+      "`prefers-reduced-motion` produces an intentional static fallback.",
+      "Content remains readable before JavaScript animation initializes."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-012": {
+    "title": "Create Lenis SmoothScrollProvider",
+    "dependsOn": [
+      "TASK-011"
+    ],
+    "area": "Motion",
+    "risk": "Medium",
+    "profile": "motion-interaction",
+    "skills": [
+      "gsap-motion-engineering"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/app/providers/**`",
+      "`src/lib/motion/**`",
+      "`src/components/motion/**`",
+      "`src/styles/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/MASTER-BLUEPRINT.md"
+    ],
+    "acceptance": [
+      "The behavior is centralized, cleaned up on unmount, and does not create duplicate listeners.",
+      "`prefers-reduced-motion` produces an intentional static fallback.",
+      "Content remains readable before JavaScript animation initializes."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-013": {
+    "title": "Create ReducedMotionProvider",
+    "dependsOn": [
+      "TASK-011"
+    ],
+    "area": "Motion",
+    "risk": "Medium",
+    "profile": "motion-interaction",
+    "skills": [
+      "gsap-motion-engineering"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/app/providers/**`",
+      "`src/lib/motion/**`",
+      "`src/components/motion/**`",
+      "`src/styles/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/MASTER-BLUEPRINT.md"
+    ],
+    "acceptance": [
+      "The behavior is centralized, cleaned up on unmount, and does not create duplicate listeners.",
+      "`prefers-reduced-motion` produces an intentional static fallback.",
+      "Content remains readable before JavaScript animation initializes."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-014": {
+    "title": "Build AppLoader",
+    "dependsOn": [
+      "TASK-008",
+      "TASK-013"
+    ],
+    "area": "Motion",
+    "risk": "Medium",
+    "profile": "motion-interaction",
+    "skills": [
+      "gsap-motion-engineering"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/app/providers/**`",
+      "`src/lib/motion/**`",
+      "`src/components/motion/**`",
+      "`src/styles/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/MASTER-BLUEPRINT.md"
+    ],
+    "acceptance": [
+      "The behavior is centralized, cleaned up on unmount, and does not create duplicate listeners.",
+      "`prefers-reduced-motion` produces an intentional static fallback.",
+      "Content remains readable before JavaScript animation initializes."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-015": {
+    "title": "Build PageTransition overlay",
+    "dependsOn": [
+      "TASK-008",
+      "TASK-011",
+      "TASK-012",
+      "TASK-013"
+    ],
+    "area": "Motion",
+    "risk": "Medium",
+    "profile": "motion-interaction",
+    "skills": [
+      "gsap-motion-engineering"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/app/providers/**`",
+      "`src/lib/motion/**`",
+      "`src/components/motion/**`",
+      "`src/styles/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/MASTER-BLUEPRINT.md"
+    ],
+    "acceptance": [
+      "The behavior is centralized, cleaned up on unmount, and does not create duplicate listeners.",
+      "`prefers-reduced-motion` produces an intentional static fallback.",
+      "Content remains readable before JavaScript animation initializes."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-016": {
+    "title": "Create CursorContext and CustomCursor",
+    "dependsOn": [
+      "TASK-011",
+      "TASK-013"
+    ],
+    "area": "Interaction",
+    "risk": "Medium",
+    "profile": "motion-interaction",
+    "skills": [
+      "gsap-motion-engineering"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/app/providers/**`",
+      "`src/components/interaction/**`",
+      "`src/hooks/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/MASTER-BLUEPRINT.md"
+    ],
+    "acceptance": [
+      "Keyboard and touch alternatives exist for pointer-driven behavior.",
+      "The feature is disabled or simplified on unsupported/coarse-pointer devices.",
+      "No per-frame React state update is introduced."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-017": {
+    "title": "Build MagneticButton",
+    "dependsOn": [
+      "TASK-005",
+      "TASK-011",
+      "TASK-013",
+      "TASK-016"
+    ],
+    "area": "Interaction",
+    "risk": "High",
+    "profile": "motion-interaction",
+    "skills": [
+      "gsap-motion-engineering"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`src/app/providers/**`",
+      "`src/components/interaction/**`",
+      "`src/hooks/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/MASTER-BLUEPRINT.md"
+    ],
+    "acceptance": [
+      "Keyboard and touch alternatives exist for pointer-driven behavior.",
+      "The feature is disabled or simplified on unsupported/coarse-pointer devices.",
+      "No per-frame React state update is introduced."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-018": {
+    "title": "Create profile and navigation data models",
+    "dependsOn": [
+      "TASK-003"
+    ],
+    "area": "Data",
+    "risk": "Low",
+    "profile": "data-content",
+    "skills": [
+      "portfolio-content-engineering"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/data/**`",
+      "`src/types/**`",
+      "`src/lib/content/**`",
+      "`content-input/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CONTENT-INTEGRITY.md",
+      "content-input/"
+    ],
+    "acceptance": [
+      "Data is typed, deterministic, and free of duplicate identifiers or slugs.",
+      "Unknown or unverified claims remain `TODO(USER_INPUT)` and cannot pass release validation.",
+      "Consumers receive explicit empty/error behavior instead of implicit undefined values."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-019": {
+    "title": "Create project TypeScript data model",
+    "dependsOn": [
+      "TASK-003",
+      "TASK-018"
+    ],
+    "area": "Data",
+    "risk": "Medium",
+    "profile": "data-content",
+    "skills": [
+      "portfolio-content-engineering"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/data/**`",
+      "`src/types/**`",
+      "`src/lib/content/**`",
+      "`content-input/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CONTENT-INTEGRITY.md",
+      "content-input/"
+    ],
+    "acceptance": [
+      "Data is typed, deterministic, and free of duplicate identifiers or slugs.",
+      "Unknown or unverified claims remain `TODO(USER_INPUT)` and cannot pass release validation.",
+      "Consumers receive explicit empty/error behavior instead of implicit undefined values."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-020": {
+    "title": "Add sample project data and helper utilities",
+    "dependsOn": [
+      "TASK-019"
+    ],
+    "area": "Data",
+    "risk": "Medium",
+    "profile": "data-content",
+    "skills": [
+      "portfolio-content-engineering"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/data/**`",
+      "`src/types/**`",
+      "`src/lib/content/**`",
+      "`content-input/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CONTENT-INTEGRITY.md",
+      "content-input/"
+    ],
+    "acceptance": [
+      "Data is typed, deterministic, and free of duplicate identifiers or slugs.",
+      "Unknown or unverified claims remain `TODO(USER_INPUT)` and cannot pass release validation.",
+      "Consumers receive explicit empty/error behavior instead of implicit undefined values."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-021": {
+    "title": "Integrate verified portfolio content",
+    "dependsOn": [
+      "TASK-018",
+      "TASK-019",
+      "TASK-020"
+    ],
+    "area": "Data",
+    "risk": "High",
+    "profile": "data-content",
+    "skills": [
+      "portfolio-content-engineering"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`src/data/**`",
+      "`src/types/**`",
+      "`src/lib/content/**`",
+      "`content-input/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CONTENT-INTEGRITY.md",
+      "content-input/"
+    ],
+    "acceptance": [
+      "Data is typed, deterministic, and free of duplicate identifiers or slugs.",
+      "Unknown or unverified claims remain `TODO(USER_INPUT)` and cannot pass release validation.",
+      "Consumers receive explicit empty/error behavior instead of implicit undefined values."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build",
+      "npm run test -- --run"
+    ]
+  },
+  "TASK-022": {
+    "title": "Audit reference UI and define adaptation rules",
+    "dependsOn": [
+      "TASK-004",
+      "TASK-011",
+      "TASK-021"
+    ],
+    "area": "Reference",
+    "risk": "Medium",
+    "profile": "data-content",
+    "skills": [
+      "ui-reference-implementation"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`docs/reference/**`",
+      "`docs/blueprint/DESIGN-LANGUAGE.md`",
+      "`docs/blueprint/UI-GUIDELINE.md`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CONTENT-INTEGRITY.md",
+      "content-input/"
+    ],
+    "acceptance": [
+      "The audit separates reusable interaction principles from copied visual assets or code.",
+      "Adaptation rules are mapped to the UE5 portfolio goals and mobile behavior.",
+      "No copyrighted source asset is added to the repository."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-023": {
+    "title": "Build homepage Hero layout",
+    "dependsOn": [
+      "TASK-008",
+      "TASK-021",
+      "TASK-022"
+    ],
+    "area": "Homepage",
+    "risk": "Medium",
+    "profile": "ui-section",
+    "skills": [
+      "accessibility-audit"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/pages/HomePage.*`",
+      "`src/features/home/**`",
+      "`src/assets/home/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DESIGN-TOKENS.md",
+      "docs/contracts/"
+    ],
+    "acceptance": [
+      "The section renders at 375px, 768px, 1440px, and 1920px without horizontal overflow.",
+      "Primary content and CTA remain accessible by keyboard and without motion.",
+      "The homepage initial bundle does not include Three.js."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-024": {
+    "title": "Add Hero title animation and media parallax",
+    "dependsOn": [
+      "TASK-011",
+      "TASK-013",
+      "TASK-023"
+    ],
+    "area": "Homepage",
+    "risk": "High",
+    "profile": "motion-interaction",
+    "skills": [
+      "gsap-motion-engineering"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`src/pages/HomePage.*`",
+      "`src/features/home/**`",
+      "`src/assets/home/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/MASTER-BLUEPRINT.md"
+    ],
+    "acceptance": [
+      "The section renders at 375px, 768px, 1440px, and 1920px without horizontal overflow.",
+      "Primary content and CTA remain accessible by keyboard and without motion.",
+      "The homepage initial bundle does not include Three.js."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-025": {
+    "title": "Build Skills and Work Direction sections",
+    "dependsOn": [
+      "TASK-008",
+      "TASK-018",
+      "TASK-021"
+    ],
+    "area": "Homepage",
+    "risk": "Medium",
+    "profile": "ui-section",
+    "skills": [
+      "accessibility-audit"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/pages/HomePage.*`",
+      "`src/features/home/**`",
+      "`src/assets/home/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DESIGN-TOKENS.md",
+      "docs/contracts/"
+    ],
+    "acceptance": [
+      "The section renders at 375px, 768px, 1440px, and 1920px without horizontal overflow.",
+      "Primary content and CTA remain accessible by keyboard and without motion.",
+      "The homepage initial bundle does not include Three.js."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-026": {
+    "title": "Build Contact and Resume sections",
+    "dependsOn": [
+      "TASK-008",
+      "TASK-018",
+      "TASK-021",
+      "TASK-025"
+    ],
+    "area": "Homepage",
+    "risk": "Medium",
+    "profile": "ui-section",
+    "skills": [
+      "accessibility-audit"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/pages/HomePage.*`",
+      "`src/features/home/**`",
+      "`src/assets/home/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DESIGN-TOKENS.md",
+      "docs/contracts/"
+    ],
+    "acceptance": [
+      "The section renders at 375px, 768px, 1440px, and 1920px without horizontal overflow.",
+      "Primary content and CTA remain accessible by keyboard and without motion.",
+      "The homepage initial bundle does not include Three.js."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-027": {
+    "title": "Build featured editorial project showcase",
+    "dependsOn": [
+      "TASK-008",
+      "TASK-019",
+      "TASK-020",
+      "TASK-021"
+    ],
+    "area": "Homepage",
+    "risk": "Medium",
+    "profile": "ui-section",
+    "skills": [
+      "accessibility-audit"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/pages/HomePage.*`",
+      "`src/features/home/**`",
+      "`src/assets/home/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DESIGN-TOKENS.md",
+      "docs/contracts/"
+    ],
+    "acceptance": [
+      "The section renders at 375px, 768px, 1440px, and 1920px without horizontal overflow.",
+      "Primary content and CTA remain accessible by keyboard and without motion.",
+      "The homepage initial bundle does not include Three.js."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-028": {
+    "title": "Build hover video preview behavior",
+    "dependsOn": [
+      "TASK-013",
+      "TASK-027"
+    ],
+    "area": "Homepage",
+    "risk": "High",
+    "profile": "ui-section",
+    "skills": [
+      "accessibility-audit"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`src/pages/HomePage.*`",
+      "`src/features/home/**`",
+      "`src/assets/home/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DESIGN-TOKENS.md",
+      "docs/contracts/"
+    ],
+    "acceptance": [
+      "The section renders at 375px, 768px, 1440px, and 1920px without horizontal overflow.",
+      "Primary content and CTA remain accessible by keyboard and without motion.",
+      "The homepage initial bundle does not include Three.js."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-029": {
+    "title": "Build horizontal project rail desktop layout",
+    "dependsOn": [
+      "TASK-011",
+      "TASK-013",
+      "TASK-027"
+    ],
+    "area": "Homepage",
+    "risk": "High",
+    "profile": "ui-section",
+    "skills": [
+      "accessibility-audit"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`src/pages/HomePage.*`",
+      "`src/features/home/**`",
+      "`src/assets/home/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DESIGN-TOKENS.md",
+      "docs/contracts/"
+    ],
+    "acceptance": [
+      "The section renders at 375px, 768px, 1440px, and 1920px without horizontal overflow.",
+      "Primary content and CTA remain accessible by keyboard and without motion.",
+      "The homepage initial bundle does not include Three.js."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-030": {
+    "title": "Add ScrollTrigger horizontal motion and mobile fallback",
+    "dependsOn": [
+      "TASK-012",
+      "TASK-013",
+      "TASK-029"
+    ],
+    "area": "Homepage",
+    "risk": "High",
+    "profile": "motion-interaction",
+    "skills": [
+      "gsap-motion-engineering"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`src/pages/HomePage.*`",
+      "`src/features/home/**`",
+      "`src/assets/home/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/MASTER-BLUEPRINT.md"
+    ],
+    "acceptance": [
+      "The section renders at 375px, 768px, 1440px, and 1920px without horizontal overflow.",
+      "Primary content and CTA remain accessible by keyboard and without motion.",
+      "The homepage initial bundle does not include Three.js."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-031": {
+    "title": "Build projects listing page",
+    "dependsOn": [
+      "TASK-008",
+      "TASK-019",
+      "TASK-020",
+      "TASK-021"
+    ],
+    "area": "Projects",
+    "risk": "Medium",
+    "profile": "ui-section",
+    "skills": [
+      "accessibility-audit"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/pages/ProjectsPage.*`",
+      "`src/features/projects/**`",
+      "`src/data/projects.*`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DESIGN-TOKENS.md",
+      "docs/contracts/"
+    ],
+    "acceptance": [
+      "Filtering/navigation behavior is deterministic, keyboard-accessible, and touch-safe.",
+      "Empty and unknown-category states are explicitly rendered.",
+      "Project cards use verified data rather than component-local content."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-032": {
+    "title": "Add category and technology filters",
+    "dependsOn": [
+      "TASK-019",
+      "TASK-020",
+      "TASK-031"
+    ],
+    "area": "Projects",
+    "risk": "Medium",
+    "profile": "ui-section",
+    "skills": [
+      "accessibility-audit"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/pages/ProjectsPage.*`",
+      "`src/features/projects/**`",
+      "`src/data/projects.*`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DESIGN-TOKENS.md",
+      "docs/contracts/"
+    ],
+    "acceptance": [
+      "Filtering/navigation behavior is deterministic, keyboard-accessible, and touch-safe.",
+      "Empty and unknown-category states are explicitly rendered.",
+      "Project cards use verified data rather than component-local content."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-033": {
+    "title": "Build hover media preview for project list",
+    "dependsOn": [
+      "TASK-013",
+      "TASK-031",
+      "TASK-032"
+    ],
+    "area": "Projects",
+    "risk": "Medium",
+    "profile": "ui-section",
+    "skills": [
+      "accessibility-audit"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/pages/ProjectsPage.*`",
+      "`src/features/projects/**`",
+      "`src/data/projects.*`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DESIGN-TOKENS.md",
+      "docs/contracts/"
+    ],
+    "acceptance": [
+      "Filtering/navigation behavior is deterministic, keyboard-accessible, and touch-safe.",
+      "Empty and unknown-category states are explicitly rendered.",
+      "Project cards use verified data rather than component-local content."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-034": {
+    "title": "Build About page",
+    "dependsOn": [
+      "TASK-008",
+      "TASK-018",
+      "TASK-021",
+      "TASK-023",
+      "TASK-025"
+    ],
+    "area": "About",
+    "risk": "Medium",
+    "profile": "ui-section",
+    "skills": [
+      "accessibility-audit"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/pages/AboutPage.*`",
+      "`src/features/about/**`",
+      "`src/assets/about/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DESIGN-TOKENS.md",
+      "docs/contracts/"
+    ],
+    "acceptance": [
+      "The page communicates the verified UE5 specialization, workflow, and career direction.",
+      "All claims come from approved content inputs or remain clearly marked TODO.",
+      "The layout is readable on mobile and supports keyboard navigation."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-035": {
+    "title": "Build project detail page structure",
+    "dependsOn": [
+      "TASK-008",
+      "TASK-019",
+      "TASK-020",
+      "TASK-021"
+    ],
+    "area": "Project Detail",
+    "risk": "Medium",
+    "profile": "foundation",
+    "skills": [
+      "react-typescript-architecture"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/pages/ProjectDetailPage.*`",
+      "`src/features/project-detail/**`",
+      "`src/assets/projects/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CODING-STANDARD.md"
+    ],
+    "acceptance": [
+      "Unknown slugs fail safely and valid projects render all required verified sections.",
+      "Media has poster/fallback behavior and does not block core text content.",
+      "Sticky, lightbox, or scroll behavior has mobile and reduced-motion fallbacks."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-036": {
+    "title": "Build ProjectHero and metadata section",
+    "dependsOn": [
+      "TASK-013",
+      "TASK-035"
+    ],
+    "area": "Project Detail",
+    "risk": "Medium",
+    "profile": "foundation",
+    "skills": [
+      "react-typescript-architecture"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/pages/ProjectDetailPage.*`",
+      "`src/features/project-detail/**`",
+      "`src/assets/projects/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CODING-STANDARD.md"
+    ],
+    "acceptance": [
+      "Unknown slugs fail safely and valid projects render all required verified sections.",
+      "Media has poster/fallback behavior and does not block core text content.",
+      "Sticky, lightbox, or scroll behavior has mobile and reduced-motion fallbacks."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-037": {
+    "title": "Build responsibilities and technology sections",
+    "dependsOn": [
+      "TASK-035",
+      "TASK-036"
+    ],
+    "area": "Project Detail",
+    "risk": "Medium",
+    "profile": "foundation",
+    "skills": [
+      "react-typescript-architecture"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/pages/ProjectDetailPage.*`",
+      "`src/features/project-detail/**`",
+      "`src/assets/projects/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CODING-STANDARD.md"
+    ],
+    "acceptance": [
+      "Unknown slugs fail safely and valid projects render all required verified sections.",
+      "Media has poster/fallback behavior and does not block core text content.",
+      "Sticky, lightbox, or scroll behavior has mobile and reduced-motion fallbacks."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-038": {
+    "title": "Build technical challenge sections",
+    "dependsOn": [
+      "TASK-035",
+      "TASK-037"
+    ],
+    "area": "Project Detail",
+    "risk": "Medium",
+    "profile": "foundation",
+    "skills": [
+      "react-typescript-architecture"
+    ],
+    "validationTier": "standard",
+    "allowedFiles": [
+      "`src/pages/ProjectDetailPage.*`",
+      "`src/features/project-detail/**`",
+      "`src/assets/projects/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/CODING-STANDARD.md"
+    ],
+    "acceptance": [
+      "Unknown slugs fail safely and valid projects render all required verified sections.",
+      "Media has poster/fallback behavior and does not block core text content.",
+      "Sticky, lightbox, or scroll behavior has mobile and reduced-motion fallbacks."
+    ],
+    "validationCommands": [
+      "npm run lint",
+      "npm run typecheck"
+    ]
+  },
+  "TASK-039": {
+    "title": "Build project image gallery and lightbox",
+    "dependsOn": [
+      "TASK-013",
+      "TASK-035"
+    ],
+    "area": "Project Detail",
+    "risk": "High",
+    "profile": "threejs-media",
+    "skills": [
+      "react-three-fiber-viewer",
+      "media-asset-pipeline"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`src/pages/ProjectDetailPage.*`",
+      "`src/features/project-detail/**`",
+      "`src/assets/projects/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/architecture/MEDIA-FALLBACK-MATRIX.md",
+      "docs/contracts/"
+    ],
+    "acceptance": [
+      "Unknown slugs fail safely and valid projects render all required verified sections.",
+      "Media has poster/fallback behavior and does not block core text content.",
+      "Sticky, lightbox, or scroll behavior has mobile and reduced-motion fallbacks."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-040": {
+    "title": "Build project video component",
+    "dependsOn": [
+      "TASK-013",
+      "TASK-035",
+      "TASK-039"
+    ],
+    "area": "Project Detail",
+    "risk": "High",
+    "profile": "threejs-media",
+    "skills": [
+      "react-three-fiber-viewer",
+      "media-asset-pipeline"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`src/pages/ProjectDetailPage.*`",
+      "`src/features/project-detail/**`",
+      "`src/assets/projects/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/architecture/MEDIA-FALLBACK-MATRIX.md",
+      "docs/contracts/"
+    ],
+    "acceptance": [
+      "Unknown slugs fail safely and valid projects render all required verified sections.",
+      "Media has poster/fallback behavior and does not block core text content.",
+      "Sticky, lightbox, or scroll behavior has mobile and reduced-motion fallbacks."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-041": {
+    "title": "Build sticky project information and scroll narrative",
+    "dependsOn": [
+      "TASK-011",
+      "TASK-012",
+      "TASK-013",
+      "TASK-035",
+      "TASK-040"
+    ],
+    "area": "Project Detail",
+    "risk": "High",
+    "profile": "threejs-media",
+    "skills": [
+      "react-three-fiber-viewer",
+      "media-asset-pipeline"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`src/pages/ProjectDetailPage.*`",
+      "`src/features/project-detail/**`",
+      "`src/assets/projects/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/architecture/MEDIA-FALLBACK-MATRIX.md",
+      "docs/contracts/"
+    ],
+    "acceptance": [
+      "Unknown slugs fail safely and valid projects render all required verified sections.",
+      "Media has poster/fallback behavior and does not block core text content.",
+      "Sticky, lightbox, or scroll behavior has mobile and reduced-motion fallbacks."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-042": {
+    "title": "Build lazy-loaded GLB viewer",
+    "dependsOn": [
+      "TASK-003",
+      "TASK-013",
+      "TASK-041"
+    ],
+    "area": "3D",
+    "risk": "High",
+    "profile": "threejs-media",
+    "skills": [
+      "react-three-fiber-viewer",
+      "media-asset-pipeline"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`src/features/viewer/**`",
+      "`src/assets/models/**`",
+      "`vite.config.*`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/architecture/MEDIA-FALLBACK-MATRIX.md",
+      "docs/contracts/"
+    ],
+    "acceptance": [
+      "Three.js/R3F is loaded only after explicit navigation or user intent.",
+      "Unsupported WebGL, load failure, and reduced-motion states show a useful poster fallback.",
+      "The viewer cleans up GPU resources and does not leak render loops."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build"
+    ]
+  },
+  "TASK-043": {
+    "title": "Implement SEO and social metadata",
+    "dependsOn": [
+      "TASK-034",
+      "TASK-042"
+    ],
+    "area": "Release",
+    "risk": "Medium",
+    "profile": "deployment-release",
+    "skills": [
+      "frontend-performance-audit"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`src/lib/seo/**`",
+      "`src/app/**`",
+      "`src/pages/**`",
+      "`public/**`",
+      "`content-input/SITE-CONFIG-TEMPLATE.md`",
+      "`.env.example`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DEPLOYMENT.md"
+    ],
+    "acceptance": [
+      "Release checks fail on placeholders, unsafe publication status, broken links, or missing required metadata.",
+      "The change documents measurable before/after evidence where optimization is involved.",
+      "The production build remains reproducible and does not expose secrets."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build",
+      "npm run test",
+      "npm run test:e2e"
+    ]
+  },
+  "TASK-044": {
+    "title": "Validate portfolio content and publication safety",
+    "dependsOn": [
+      "TASK-021",
+      "TASK-034",
+      "TASK-042",
+      "TASK-043"
+    ],
+    "area": "Release",
+    "risk": "High",
+    "profile": "deployment-release",
+    "skills": [
+      "portfolio-content-engineering",
+      "frontend-performance-audit"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`src/**`",
+      "`public/**`",
+      "`scripts/**`",
+      "`docs/**`",
+      "`package.json`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DEPLOYMENT.md"
+    ],
+    "acceptance": [
+      "Release checks fail on placeholders, unsafe publication status, broken links, or missing required metadata.",
+      "The change documents measurable before/after evidence where optimization is involved.",
+      "The production build remains reproducible and does not expose secrets."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build",
+      "npm run test",
+      "npm run test:e2e"
+    ]
+  },
+  "TASK-045": {
+    "title": "Optimize media and frontend performance",
+    "dependsOn": [
+      "TASK-043",
+      "TASK-044"
+    ],
+    "area": "Release",
+    "risk": "High",
+    "profile": "deployment-release",
+    "skills": [
+      "frontend-performance-audit"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`src/**`",
+      "`public/**`",
+      "`scripts/**`",
+      "`docs/**`",
+      "`package.json`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DEPLOYMENT.md"
+    ],
+    "acceptance": [
+      "Release checks fail on placeholders, unsafe publication status, broken links, or missing required metadata.",
+      "The change documents measurable before/after evidence where optimization is involved.",
+      "The production build remains reproducible and does not expose secrets."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build",
+      "npm run test",
+      "npm run test:e2e"
+    ]
+  },
+  "TASK-046": {
+    "title": "Run accessibility audit and remediation",
+    "dependsOn": [
+      "TASK-034",
+      "TASK-042",
+      "TASK-045"
+    ],
+    "area": "Release",
+    "risk": "High",
+    "profile": "deployment-release",
+    "skills": [
+      "accessibility-audit"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`src/**`",
+      "`public/**`",
+      "`scripts/**`",
+      "`docs/**`",
+      "`package.json`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DEPLOYMENT.md"
+    ],
+    "acceptance": [
+      "Release checks fail on placeholders, unsafe publication status, broken links, or missing required metadata.",
+      "The change documents measurable before/after evidence where optimization is involved.",
+      "The production build remains reproducible and does not expose secrets."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build",
+      "npm run test",
+      "npm run test:e2e"
+    ]
+  },
+  "TASK-047": {
+    "title": "Add Vitest unit and component tests",
+    "dependsOn": [
+      "TASK-044",
+      "TASK-045",
+      "TASK-046"
+    ],
+    "area": "Quality",
+    "risk": "High",
+    "profile": "testing-quality",
+    "skills": [
+      "playwright-portfolio-qa"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`src/**/*.test.*`",
+      "`tests/**`",
+      "`playwright.config.*`",
+      "`vitest.config.*`",
+      "`package.json`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/architecture/DEFINITION-OF-DONE.md"
+    ],
+    "acceptance": [
+      "Tests cover meaningful behavior and avoid assertions tied only to implementation details.",
+      "Visual tests run in a stable reduced-motion environment with deterministic assets.",
+      "A failing test produces actionable output and artifacts."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build",
+      "npm run test",
+      "npm run test:e2e"
+    ]
+  },
+  "TASK-048": {
+    "title": "Add Playwright critical-path and visual tests",
+    "dependsOn": [
+      "TASK-046",
+      "TASK-047"
+    ],
+    "area": "Quality",
+    "risk": "High",
+    "profile": "testing-quality",
+    "skills": [
+      "playwright-portfolio-qa"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`src/**/*.test.*`",
+      "`tests/**`",
+      "`playwright.config.*`",
+      "`vitest.config.*`",
+      "`package.json`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/architecture/DEFINITION-OF-DONE.md"
+    ],
+    "acceptance": [
+      "Tests cover meaningful behavior and avoid assertions tied only to implementation details.",
+      "Visual tests run in a stable reduced-motion environment with deterministic assets.",
+      "A failing test produces actionable output and artifacts."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build",
+      "npm run test",
+      "npm run test:e2e"
+    ]
+  },
+  "TASK-049": {
+    "title": "Configure GitHub Actions continuous integration",
+    "dependsOn": [
+      "TASK-047",
+      "TASK-048"
+    ],
+    "area": "Release",
+    "risk": "High",
+    "profile": "deployment-release",
+    "skills": [
+      "frontend-performance-audit"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`.github/workflows/**`",
+      "`package.json`",
+      "`package-lock.json`",
+      "`scripts/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DEPLOYMENT.md"
+    ],
+    "acceptance": [
+      "Release checks fail on placeholders, unsafe publication status, broken links, or missing required metadata.",
+      "The change documents measurable before/after evidence where optimization is involved.",
+      "The production build remains reproducible and does not expose secrets."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build",
+      "npm run test",
+      "npm run test:e2e"
+    ]
+  },
+  "TASK-050": {
+    "title": "Create 1Panel and Nginx deployment configuration",
+    "dependsOn": [
+      "TASK-043",
+      "TASK-044",
+      "TASK-045",
+      "TASK-046",
+      "TASK-049"
+    ],
+    "area": "Deployment",
+    "risk": "High",
+    "profile": "deployment-release",
+    "skills": [
+      "frontend-performance-audit"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`deploy/**`",
+      "`nginx/**`",
+      "`docs/blueprint/DEPLOYMENT.md`",
+      "`.env.example`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DEPLOYMENT.md"
+    ],
+    "acceptance": [
+      "SPA fallback, asset caching, HTML cache policy, compression, HTTPS, and rollback are documented.",
+      "Deployment uses only public client configuration and contains no secrets.",
+      "A post-deploy smoke check verifies primary routes and static assets."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build",
+      "npm run test",
+      "npm run test:e2e"
+    ]
+  },
+  "TASK-051": {
+    "title": "Perform final release validation",
+    "dependsOn": [
+      "TASK-043",
+      "TASK-044",
+      "TASK-045",
+      "TASK-046",
+      "TASK-047",
+      "TASK-048",
+      "TASK-049",
+      "TASK-050"
+    ],
+    "area": "Release",
+    "risk": "High",
+    "profile": "deployment-release",
+    "skills": [
+      "frontend-performance-audit"
+    ],
+    "validationTier": "full",
+    "allowedFiles": [
+      "`docs/checklists/**`",
+      "`artifacts/release/**`",
+      "`.codex/project-state.json`"
+    ],
+    "inputs": [
+      "docs/blueprint/DEPLOYMENT.md"
+    ],
+    "acceptance": [
+      "Release checks fail on placeholders, unsafe publication status, broken links, or missing required metadata.",
+      "The change documents measurable before/after evidence where optimization is involved.",
+      "The production build remains reproducible and does not expose secrets."
+    ],
+    "validationCommands": [
+      "python scripts/validate-blueprint.py",
+      "npm run lint",
+      "npm run typecheck",
+      "npm run build",
+      "npm run test",
+      "npm run test:e2e"
+    ]
+  }
+}
