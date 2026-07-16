@@ -23,9 +23,11 @@ Install the OpenCode GitHub App on this repository and add the required model pr
 
 The default workflow expects:
 
-- `ANTHROPIC_API_KEY`
+- `OPENCODE_API_KEY`
 
 OpenCode runs inside GitHub Actions. The manual OpenCode workflow can also use the built-in `GITHUB_TOKEN`.
+
+If an API key is ever written to a workflow file by an installer or manual edit, rotate that key before running the workflow and keep only the repository secret reference in Git.
 
 ## Workflows
 
