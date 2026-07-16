@@ -26,9 +26,20 @@
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
   --radius-pill: 9999px;
+
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 400ms;
+  --duration-slow: 800ms;
 }
 
 @layer base {
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
   :root {
     color: var(--color-text);
     background: var(--color-background);
@@ -44,7 +55,23 @@
     min-width: 320px;
     min-height: 100vh;
     margin: 0;
-    background: var(--color-background);
+    background:
+      radial-gradient(circle at top left, color-mix(in srgb, var(--color-primary) 18%, transparent), transparent 34rem),
+      var(--color-background);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
   }
 
   button,
@@ -52,5 +79,43 @@
   textarea,
   select {
     font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    color: var(--color-text);
+    background: color-mix(in srgb, var(--color-primary) 42%, transparent);
+  }
+}
+
+@layer utilities {
+  .app-container {
+    width: min(100% - 2rem, 72rem);
+    margin-inline: auto;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 }
