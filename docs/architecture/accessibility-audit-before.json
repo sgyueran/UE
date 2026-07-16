@@ -1,0 +1,810 @@
+{
+  "timestamp": "2026-07-16T15:13:51.202Z",
+  "axeVersion": "4.12.1",
+  "routes": 20,
+  "totals": {
+    "critical": 0,
+    "serious": 4,
+    "moderate": 0,
+    "minor": 0
+  },
+  "structureIssues": [],
+  "results": [
+    {
+      "route": "home",
+      "path": "",
+      "viewport": "desktop-1440",
+      "url": "http://127.0.0.1:4173/UE/",
+      "title": "Release preview | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ],
+            "nodeCount": 1,
+            "nodes": [
+              {
+                "target": [
+                  ".border-primary"
+                ],
+                "html": "<a class=\"inline-flex min-h-11 items-center justify-center rounded-pill border border-primary bg-primary px-lg text-sm font-medium text-white transition duration-200 ease-[var(--ease-standard)] hover:",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.67 (foreground color: #ffffff, background color: #3b82f6, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          }
+        ],
+        "summary": {
+          "critical": 0,
+          "serious": 1,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 1440,
+        "viewportWidth": 1440
+      }
+    },
+    {
+      "route": "home",
+      "path": "",
+      "viewport": "tablet-768",
+      "url": "http://127.0.0.1:4173/UE/",
+      "title": "Release preview | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ],
+            "nodeCount": 1,
+            "nodes": [
+              {
+                "target": [
+                  ".border-primary"
+                ],
+                "html": "<a class=\"inline-flex min-h-11 items-center justify-center rounded-pill border border-primary bg-primary px-lg text-sm font-medium text-white transition duration-200 ease-[var(--ease-standard)] hover:",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.67 (foreground color: #ffffff, background color: #3b82f6, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          }
+        ],
+        "summary": {
+          "critical": 0,
+          "serious": 1,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 768,
+        "viewportWidth": 768
+      }
+    },
+    {
+      "route": "home",
+      "path": "",
+      "viewport": "mobile-375",
+      "url": "http://127.0.0.1:4173/UE/",
+      "title": "Release preview | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ],
+            "nodeCount": 1,
+            "nodes": [
+              {
+                "target": [
+                  ".border-primary"
+                ],
+                "html": "<a class=\"inline-flex min-h-11 items-center justify-center rounded-pill border border-primary bg-primary px-lg text-sm font-medium text-white transition duration-200 ease-[var(--ease-standard)] hover:",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.67 (foreground color: #ffffff, background color: #3b82f6, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          }
+        ],
+        "summary": {
+          "critical": 0,
+          "serious": 1,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 375,
+        "viewportWidth": 375
+      }
+    },
+    {
+      "route": "home",
+      "path": "",
+      "viewport": "mobile-320",
+      "url": "http://127.0.0.1:4173/UE/",
+      "title": "Release preview | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "tags": [
+              "cat.color",
+              "wcag2aa",
+              "wcag143",
+              "TTv5",
+              "TT13.c",
+              "EN-301-549",
+              "EN-9.1.4.3",
+              "ACT",
+              "RGAAv4",
+              "RGAA-3.2.1"
+            ],
+            "nodeCount": 1,
+            "nodes": [
+              {
+                "target": [
+                  ".border-primary"
+                ],
+                "html": "<a class=\"inline-flex min-h-11 items-center justify-center rounded-pill border border-primary bg-primary px-lg text-sm font-medium text-white transition duration-200 ease-[var(--ease-standard)] hover:",
+                "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.67 (foreground color: #ffffff, background color: #3b82f6, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+              }
+            ]
+          }
+        ],
+        "summary": {
+          "critical": 0,
+          "serious": 1,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 320,
+        "viewportWidth": 320
+      }
+    },
+    {
+      "route": "projects",
+      "path": "projects",
+      "viewport": "desktop-1440",
+      "url": "http://127.0.0.1:4173/UE/projects",
+      "title": "Verified project index | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [],
+        "summary": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 1440,
+        "viewportWidth": 1440
+      }
+    },
+    {
+      "route": "projects",
+      "path": "projects",
+      "viewport": "tablet-768",
+      "url": "http://127.0.0.1:4173/UE/projects",
+      "title": "Verified project index | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [],
+        "summary": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 768,
+        "viewportWidth": 768
+      }
+    },
+    {
+      "route": "projects",
+      "path": "projects",
+      "viewport": "mobile-375",
+      "url": "http://127.0.0.1:4173/UE/projects",
+      "title": "Verified project index | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [],
+        "summary": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 375,
+        "viewportWidth": 375
+      }
+    },
+    {
+      "route": "projects",
+      "path": "projects",
+      "viewport": "mobile-320",
+      "url": "http://127.0.0.1:4173/UE/projects",
+      "title": "Verified project index | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [],
+        "summary": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 320,
+        "viewportWidth": 320
+      }
+    },
+    {
+      "route": "about",
+      "path": "about",
+      "viewport": "desktop-1440",
+      "url": "http://127.0.0.1:4173/UE/about",
+      "title": "About preview | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [],
+        "summary": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 1440,
+        "viewportWidth": 1440
+      }
+    },
+    {
+      "route": "about",
+      "path": "about",
+      "viewport": "tablet-768",
+      "url": "http://127.0.0.1:4173/UE/about",
+      "title": "About preview | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [],
+        "summary": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 768,
+        "viewportWidth": 768
+      }
+    },
+    {
+      "route": "about",
+      "path": "about",
+      "viewport": "mobile-375",
+      "url": "http://127.0.0.1:4173/UE/about",
+      "title": "About preview | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [],
+        "summary": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 375,
+        "viewportWidth": 375
+      }
+    },
+    {
+      "route": "about",
+      "path": "about",
+      "viewport": "mobile-320",
+      "url": "http://127.0.0.1:4173/UE/about",
+      "title": "About preview | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [],
+        "summary": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 320,
+        "viewportWidth": 320
+      }
+    },
+    {
+      "route": "project-not-found",
+      "path": "projects/non-existent-project",
+      "viewport": "desktop-1440",
+      "url": "http://127.0.0.1:4173/UE/projects/non-existent-project",
+      "title": "Project detail preview | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [],
+        "summary": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 1440,
+        "viewportWidth": 1440
+      }
+    },
+    {
+      "route": "project-not-found",
+      "path": "projects/non-existent-project",
+      "viewport": "tablet-768",
+      "url": "http://127.0.0.1:4173/UE/projects/non-existent-project",
+      "title": "Project detail preview | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [],
+        "summary": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 768,
+        "viewportWidth": 768
+      }
+    },
+    {
+      "route": "project-not-found",
+      "path": "projects/non-existent-project",
+      "viewport": "mobile-375",
+      "url": "http://127.0.0.1:4173/UE/projects/non-existent-project",
+      "title": "Project detail preview | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [],
+        "summary": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 375,
+        "viewportWidth": 375
+      }
+    },
+    {
+      "route": "project-not-found",
+      "path": "projects/non-existent-project",
+      "viewport": "mobile-320",
+      "url": "http://127.0.0.1:4173/UE/projects/non-existent-project",
+      "title": "Project detail preview | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [],
+        "summary": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 320,
+        "viewportWidth": 320
+      }
+    },
+    {
+      "route": "404",
+      "path": "definitely-not-a-real-route",
+      "viewport": "desktop-1440",
+      "url": "http://127.0.0.1:4173/UE/definitely-not-a-real-route",
+      "title": "Page not found | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [],
+        "summary": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 1440,
+        "viewportWidth": 1440
+      }
+    },
+    {
+      "route": "404",
+      "path": "definitely-not-a-real-route",
+      "viewport": "tablet-768",
+      "url": "http://127.0.0.1:4173/UE/definitely-not-a-real-route",
+      "title": "Page not found | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [],
+        "summary": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 768,
+        "viewportWidth": 768
+      }
+    },
+    {
+      "route": "404",
+      "path": "definitely-not-a-real-route",
+      "viewport": "mobile-375",
+      "url": "http://127.0.0.1:4173/UE/definitely-not-a-real-route",
+      "title": "Page not found | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [],
+        "summary": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 375,
+        "viewportWidth": 375
+      }
+    },
+    {
+      "route": "404",
+      "path": "definitely-not-a-real-route",
+      "viewport": "mobile-320",
+      "url": "http://127.0.0.1:4173/UE/definitely-not-a-real-route",
+      "title": "Page not found | UE Portfolio",
+      "pageErrors": [],
+      "axe": {
+        "violations": [],
+        "summary": {
+          "critical": 0,
+          "serious": 0,
+          "moderate": 0,
+          "minor": 0
+        }
+      },
+      "structure": {
+        "h1Count": 1,
+        "mainCount": 1,
+        "navCount": 2,
+        "headerCount": 1,
+        "footerCount": 1
+      },
+      "issues": {
+        "emptyLinks": 0,
+        "buttonsWithoutName": 0,
+        "imgsWithoutAlt": 0,
+        "duplicateIds": [],
+        "hasTodoUserInput": false,
+        "horizontalOverflow": false,
+        "docWidth": 320,
+        "viewportWidth": 320
+      }
+    }
+  ]
+}

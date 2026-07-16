@@ -34,7 +34,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
 
 function ErrorFallback() {
   return (
-    <main className="app-container py-section">
+    <div className="app-container py-section">
       <p className="text-sm font-medium text-danger">Application error</p>
       <h1 className="mt-sm text-4xl font-semibold text-text">Something went wrong</h1>
       <p className="mt-md max-w-2xl text-base leading-7 text-muted">
@@ -46,6 +46,6 @@ function ErrorFallback() {
       >
         Return home
       </RouteLink>
-    </main>
+    </div>
   );
 }

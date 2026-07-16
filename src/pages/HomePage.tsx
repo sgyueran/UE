@@ -2,11 +2,11 @@ import { HomeContactResume, HomeFeaturedProjects, HomeHero, HomeSkillsDirection 
 
 export function HomePage() {
   return (
-    <main>
+    <div>
       <HomeHero />
       <HomeSkillsDirection />
       <HomeFeaturedProjects />
       <HomeContactResume />
-    </main>
+    </div>
   );
 }

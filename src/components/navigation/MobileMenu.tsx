@@ -1,4 +1,4 @@
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 
 import { RouteLink } from "@/app/RouteLink";
 import { routes } from "@/app/routes";
@@ -11,10 +11,20 @@ export type MobileMenuProps = {
 export function MobileMenu({ currentPath }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const menuId = useId();
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const menuRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!isOpen) {
+      if (triggerRef.current && document.activeElement === menuRef.current) {
+        triggerRef.current.focus();
+      }
       return undefined;
+    }
+
+    const firstLink = menuRef.current?.querySelector("a");
+    if (firstLink) {
+      (firstLink as HTMLElement).focus();
     }
 
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -38,6 +48,7 @@ export function MobileMenu({ currentPath }: MobileMenuProps) {
         aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
         className="inline-flex size-10 items-center justify-center rounded-pill border border-border bg-card text-text transition duration-200 ease-[var(--ease-standard)] hover:border-primary/60"
         onClick={() => setIsOpen((open) => !open)}
+        ref={triggerRef}
         type="button"
       >
         <span className="flex flex-col gap-1" aria-hidden="true">
@@ -53,6 +64,7 @@ export function MobileMenu({ currentPath }: MobileMenuProps) {
           isOpen ? "block" : "hidden",
         )}
         id={menuId}
+        ref={menuRef}
       >
         <div className="flex flex-col gap-xs">
           {routes.map((route) => (

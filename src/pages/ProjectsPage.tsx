@@ -2,8 +2,8 @@ import { ProjectsListing } from "@/features/projects";
 
 export function ProjectsPage() {
   return (
-    <main>
+    <div>
       <ProjectsListing />
-    </main>
+    </div>
   );
 }

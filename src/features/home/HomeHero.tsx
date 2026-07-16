@@ -121,7 +121,7 @@ export function HomeHero() {
 
           <div className="mt-xl flex flex-col gap-sm sm:flex-row" data-hero-reveal>
             <a
-              className="inline-flex min-h-11 items-center justify-center rounded-pill border border-primary bg-primary px-lg text-sm font-medium text-white transition duration-200 ease-[var(--ease-standard)] hover:bg-primary/90 focus-visible:outline-primary"
+              className="inline-flex min-h-11 items-center justify-center rounded-pill border border-primary-strong bg-primary-strong px-lg text-sm font-medium text-white transition duration-200 ease-[var(--ease-standard)] hover:bg-primary-strong/90 focus-visible:outline-primary"
               href="#portfolio-readiness"
             >
               Review readiness
