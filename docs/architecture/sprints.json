@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "source": "docs/architecture/task-dependencies.json",
+  "rules": {
+    "taskCount": 51,
+    "taskCoverage": "each-task-exactly-once",
+    "dependencyOrder": "dependency-must-appear-before-dependent-task",
+    "taskStateAuthority": ".codex/project-state.json"
+  },
+  "sprints": [
+    {
+      "id": "SPRINT-01",
+      "title": "Project Foundation",
+      "goal": "Initialize the Vite React TypeScript baseline and core styling toolchain.",
+      "tasks": ["TASK-001", "TASK-002", "TASK-003"]
+    },
+    {
+      "id": "SPRINT-02",
+      "title": "Design System and Routing Shell",
+      "goal": "Create shared visual primitives and the public application routing shell.",
+      "tasks": ["TASK-004", "TASK-005", "TASK-006", "TASK-007", "TASK-008", "TASK-009", "TASK-010"]
+    },
+    {
+      "id": "SPRINT-03",
+      "title": "Motion and Interaction Core",
+      "goal": "Build the approved animation, reduced-motion, cursor, and interaction foundations.",
+      "tasks": ["TASK-011", "TASK-012", "TASK-013", "TASK-014", "TASK-015", "TASK-016", "TASK-017"]
+    },
+    {
+      "id": "SPRINT-04",
+      "title": "Content Data and Reference Rules",
+      "goal": "Establish verified portfolio data, typed project content, and reference adaptation rules.",
+      "tasks": ["TASK-018", "TASK-019", "TASK-020", "TASK-021", "TASK-022"]
+    },
+    {
+      "id": "SPRINT-05",
+      "title": "Home, Projects, and About Pages",
+      "goal": "Implement the main public portfolio pages using verified data and accessible interactions.",
+      "tasks": [
+        "TASK-023",
+        "TASK-024",
+        "TASK-025",
+        "TASK-026",
+        "TASK-027",
+        "TASK-028",
+        "TASK-029",
+        "TASK-030",
+        "TASK-031",
+        "TASK-032",
+        "TASK-033",
+        "TASK-034"
+      ]
+    },
+    {
+      "id": "SPRINT-06",
+      "title": "Project Detail and 3D Viewer",
+      "goal": "Build detailed project storytelling, media handling, scroll narrative, and the lazy 3D viewer.",
+      "tasks": ["TASK-035", "TASK-036", "TASK-037", "TASK-038", "TASK-039", "TASK-040", "TASK-041", "TASK-042"]
+    },
+    {
+      "id": "SPRINT-07",
+      "title": "Release Readiness",
+      "goal": "Prepare SEO, content safety, performance, and accessibility for publication.",
+      "tasks": ["TASK-043", "TASK-044", "TASK-045", "TASK-046"]
+    },
+    {
+      "id": "SPRINT-08",
+      "title": "Quality, CI, Deployment, and Final Validation",
+      "goal": "Add automated tests, CI, deployment configuration, and final release validation.",
+      "tasks": ["TASK-047", "TASK-048", "TASK-049", "TASK-050", "TASK-051"]
+    }
+  ]
+}

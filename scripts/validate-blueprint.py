@@ -74,6 +74,7 @@ required_policies = [
     "recovery.policy.md",
     "merge.policy.md",
     "visual-review.policy.md",
+    "sprint.policy.md",
     "decision-tree.md",
 ]
 policy_dir = ROOT / ".codex" / "policies"
