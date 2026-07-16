@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "blueprintVersion": "4.2",
-  "currentTask": "TASK-024",
-  "status": "blocked",
+  "currentTask": "TASK-030",
+  "status": "completed",
   "completed": [
     "TASK-001",
     "TASK-002",
@@ -30,36 +30,37 @@
     "TASK-025",
     "TASK-027",
     "TASK-031",
-    "TASK-026"
+    "TASK-026",
+    "TASK-024",
+    "TASK-028",
+    "TASK-029",
+    "TASK-030"
   ],
   "inProgress": null,
-  "blocked": [
-    {
-      "task": "TASK-024",
-      "reason": "Missing GSAP dependency; package.json and package-lock.json are outside TASK-024 Allowed Files",
-      "timestamp": "2026-07-16T08:35:29.295751+00:00"
-    }
-  ],
+  "blocked": [],
   "waived": [],
   "lastValidation": {
-    "task": "TASK-026",
-    "timestamp": "2026-07-16T08:34:49.132028+00:00",
+    "task": "TASK-030",
+    "timestamp": "2026-07-16T08:45:26.595017+00:00",
     "commands": [
+      "python scripts/validate-blueprint.py",
       "npm run lint",
-      "npm run typecheck"
+      "npm run typecheck",
+      "npm run build"
     ],
     "result": "passed"
   },
-  "lastCommit": "a740f57bbe44ee47ad2ec8a2764caffc6bc81ef3",
+  "lastCommit": "197736955ebdc709f2e822fe332abfb3490eb1f4",
   "dirtyAtLastCheck": true,
   "contentIntegrity": "unverified",
   "referenceAudit": "completed",
   "releaseReady": false,
-  "baselineCommit": "a740f57bbe44ee47ad2ec8a2764caffc6bc81ef3",
+  "baselineCommit": "197736955ebdc709f2e822fe332abfb3490eb1f4",
   "preExistingChanges": [
     "M .codex/project-state.json",
-    " M src/features/home/index.ts",
-    " M src/pages/HomePage.tsx",
-    "?? src/features/home/HomeContactResume.tsx"
+    " M src/features/home/HomeFeaturedProjects.tsx",
+    " M src/features/home/HomeHero.tsx",
+    "?? src/features/home/HomeProjectPreviewMedia.tsx",
+    "?? src/features/home/HomeProjectRail.tsx"
   ]
 }

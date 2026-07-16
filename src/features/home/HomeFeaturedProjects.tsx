@@ -1,5 +1,7 @@
 import { getPublicPortfolioProjects } from "@/lib/content";
 
+import { HomeProjectRail } from "./HomeProjectRail";
+
 export function HomeFeaturedProjects() {
   const publicProjects = getPublicPortfolioProjects();
   const projects = publicProjects.data ?? [];
@@ -27,15 +29,7 @@ export function HomeFeaturedProjects() {
         </div>
 
         {projects.length > 0 ? (
-          <div className="mt-2xl grid gap-lg md:grid-cols-2">
-            {projects.map((project) => (
-              <article className="rounded-lg border border-border bg-card p-lg" key={project.id}>
-                <p className="font-mono text-xs uppercase tracking-[0.16em] text-primary">{project.type}</p>
-                <h3 className="mt-md text-2xl font-semibold text-text">{project.title}</h3>
-                <p className="mt-sm text-sm leading-6 text-muted">{project.problem}</p>
-              </article>
-            ))}
-          </div>
+          <HomeProjectRail projects={projects} />
         ) : (
           <div className="mt-2xl rounded-lg border border-dashed border-border bg-background/55 p-xl">
             <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted">Empty public showcase</p>
