@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "blueprintVersion": "4.2",
-  "currentTask": "TASK-034",
+  "currentTask": "TASK-042",
   "status": "completed",
   "completed": [
     "TASK-001",
@@ -37,30 +37,38 @@
     "TASK-030",
     "TASK-032",
     "TASK-033",
-    "TASK-034"
+    "TASK-034",
+    "TASK-035",
+    "TASK-036",
+    "TASK-037",
+    "TASK-038",
+    "TASK-039",
+    "TASK-040",
+    "TASK-041",
+    "TASK-042"
   ],
   "inProgress": null,
   "blocked": [],
   "waived": [],
   "lastValidation": {
-    "task": "TASK-034",
-    "timestamp": "2026-07-16T08:48:28.891483+00:00",
+    "task": "TASK-042",
+    "timestamp": "2026-07-16T10:52:52.084456+00:00",
     "commands": [
+      "python scripts/validate-blueprint.py",
       "npm run lint",
-      "npm run typecheck"
+      "npm run typecheck",
+      "npm run build"
     ],
     "result": "passed"
   },
-  "lastCommit": "f3e9c160398d94eafe09bda10621e5ff017e445f",
+  "lastCommit": "d520972160f2ead58aff0e10ece92a80218ab1ed",
   "dirtyAtLastCheck": true,
   "contentIntegrity": "unverified",
   "referenceAudit": "completed",
   "releaseReady": false,
-  "baselineCommit": "f3e9c160398d94eafe09bda10621e5ff017e445f",
+  "baselineCommit": "d520972160f2ead58aff0e10ece92a80218ab1ed",
   "preExistingChanges": [
     "M .codex/project-state.json",
-    " M src/features/projects/ProjectsListing.tsx",
-    " M src/features/projects/index.ts",
-    "?? src/features/projects/ProjectListMediaPreview.tsx"
+    " M src/features/project-detail/ProjectDetail.tsx"
   ]
 }
