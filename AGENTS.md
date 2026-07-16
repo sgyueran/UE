@@ -11,6 +11,7 @@
 9. Never force-push or commit directly to `main`.
 10. Recover from repository evidence, not chat history.
 11. Sprint Workflow is planning-only; read `.codex/policies/sprint.policy.md` before Sprint work.
+12. Product documents guide interpretation only; they do not override Task Allowed Files or authorize implementing future Tasks early.
 
 ## Workflow authority
 
@@ -37,3 +38,10 @@ Route by outcome:
 - Release: deployment/security documents only.
 - Read the Master Blueprint only for first entry, recovery, architecture conflicts, or final release.
 - Sprint context may summarize multiple tasks, but it does not authorize multi-task execution by itself.
+
+## Product authority routing
+
+- UI Tasks must read `docs/product/PRODUCT_VISION.md`, `docs/product/DESIGN_SYSTEM.md`, `docs/product/UX_PRINCIPLES.md`, and `docs/product/DO_NOT_BREAK.md`.
+- Content Tasks must read `docs/product/CONTENT_STRATEGY.md` and `docs/product/DO_NOT_BREAK.md`.
+- Motion and navigation Tasks must read `docs/product/MOTION_GUIDELINES.md`, `docs/product/REFERENCE_TRANSLATION.md`, `docs/product/UX_PRINCIPLES.md`, and `docs/product/DO_NOT_BREAK.md`.
+- Product documents cannot override Task Allowed Files and cannot authorize early implementation of future Tasks.
