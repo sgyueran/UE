@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="noindex,nofollow" name="robots" />
+    <title>Portfolio route fallback</title>
+  </head>
+  <body>
+    <script>
+      (function () {
+        var basePath = "/UE/";
+        var storageKey = "ue-portfolio:fallback-path";
+        var path = window.location.pathname + window.location.search + window.location.hash;
+        var fallbackPath = path.indexOf(basePath) === 0 ? path.slice(basePath.length - 1) : "/";
+
+        window.sessionStorage.setItem(storageKey, fallbackPath || "/");
+        window.location.replace(basePath);
+      })();
+    </script>
+  </body>
+</html>

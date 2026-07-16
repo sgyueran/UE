@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 import { PublicLayout } from "@/layouts/PublicLayout";
+import { SeoHead } from "@/lib/seo";
 
 import { ErrorBoundary } from "./ErrorBoundary";
 import { getCurrentPath, navigationEventName } from "./navigation";
@@ -28,6 +29,7 @@ export function AppRouter() {
 
   return (
     <ErrorBoundary>
+      <SeoHead path={path} />
       <PublicLayout currentPath={path}>
         <RouteComponent />
       </PublicLayout>

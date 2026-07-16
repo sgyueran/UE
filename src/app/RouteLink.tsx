@@ -1,6 +1,7 @@
 import type { AnchorHTMLAttributes, MouseEvent, ReactNode } from "react";
 
 import { cn } from "@/lib/cn";
+import { toDeploymentPath } from "@/lib/seo";
 
 import { navigateTo } from "./navigation";
 
@@ -11,6 +12,7 @@ type RouteLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 export function RouteLink({ children, className, href, isActive = false, onClick, ...props }: RouteLinkProps) {
+  const publicHref = toDeploymentPath(href);
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
     onClick?.(event);
 
@@ -33,7 +35,7 @@ export function RouteLink({ children, className, href, isActive = false, onClick
     <a
       aria-current={isActive ? "page" : undefined}
       className={cn(className)}
-      href={href}
+      href={publicHref}
       onClick={handleClick}
       {...props}
     >
