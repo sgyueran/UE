@@ -160,7 +160,14 @@ function validatePublicLink(link: ExternalLink): readonly ContentIssue[] {
   }
 
   if (hasTodoUserInput(link)) {
-    issues.push(createTodoIssue(`Link ${link.id} still contains TODO(USER_INPUT).`, `links.${link.id}`));
+    issues.push(
+      createContentIssue(
+        "content.link_todo_user_input",
+        `Link ${link.id} still contains TODO(USER_INPUT).`,
+        "error",
+        `links.${link.id}`,
+      ),
+    );
   }
 
   return issues;
@@ -187,14 +194,72 @@ function validatePublicMedia(media: ProjectMedia): readonly ContentIssue[] {
   }
 
   if (hasTodoUserInput(media)) {
-    issues.push(createTodoIssue(`Media ${media.id} still contains TODO(USER_INPUT).`, `media.${media.id}`));
+    issues.push(
+      createContentIssue(
+        "content.media_todo_user_input",
+        `Media ${media.id} still contains TODO(USER_INPUT).`,
+        "error",
+        `media.${media.id}`,
+      ),
+    );
+  }
+
+  return issues;
+}
+
+function hasRequiredString(value: string): boolean {
+  return value.trim().length > 0 && !hasTodoUserInput(value);
+}
+
+function validateRequiredProjectFields(project: PortfolioProject): readonly ContentIssue[] {
+  const requiredFields = [
+    ["id", project.id],
+    ["slug", project.slug],
+    ["title", project.title],
+    ["unrealEngineVersion", project.unrealEngineVersion],
+    ["dateRange", project.dateRange],
+    ["role", project.role],
+    ["teamSize", project.teamSize],
+    ["cppBlueprintSplit", project.cppBlueprintSplit],
+    ["overview", project.overview],
+    ["problem", project.problem],
+    ["constraints", project.constraints],
+    ["systemDesign", project.systemDesign],
+    ["implementation", project.implementation],
+    ["optimization", project.optimization],
+    ["reflection", project.reflection],
+    ["outcome.summary", project.outcome.summary],
+    ["outcome.evidenceSource", project.outcome.evidenceSource],
+    ["safety.approvedBy", project.safety.approvedBy],
+    ["safety.approvalDate", project.safety.approvalDate],
+  ] as const;
+  const issues: ContentIssue[] = [];
+
+  for (const [field, value] of requiredFields) {
+    if (!hasRequiredString(value)) {
+      issues.push(
+        createContentIssue("content.project_missing_required_field", `Project field ${field} is missing or unverified.`, "error", field),
+      );
+    }
+  }
+
+  if (project.responsibilities.length === 0) {
+    issues.push(
+      createContentIssue("content.project_missing_required_field", "Project responsibilities are missing.", "error", "responsibilities"),
+    );
+  }
+
+  if (project.unrealDomains.length === 0) {
+    issues.push(
+      createContentIssue("content.project_missing_required_field", "Project Unreal domains are missing.", "error", "unrealDomains"),
+    );
   }
 
   return issues;
 }
 
 export function validateProjectPublicationSafety(project: PortfolioProject): readonly ContentIssue[] {
-  const issues: ContentIssue[] = [];
+  const issues: ContentIssue[] = [...validateRequiredProjectFields(project)];
 
   if (project.status !== "verified") {
     issues.push(createContentIssue("content.project_unverified", "Project content is not verified.", "error", "status"));
@@ -232,7 +297,13 @@ export function validateProjectPublicationSafety(project: PortfolioProject): rea
   }
 
   if (hasTodoUserInput(project)) {
-    issues.push(createTodoIssue("Project still contains TODO(USER_INPUT) placeholders."));
+    issues.push(
+      createContentIssue(
+        "content.project_todo_user_input",
+        "Project still contains TODO(USER_INPUT) placeholders.",
+        "error",
+      ),
+    );
   }
 
   project.media.forEach((media) => {

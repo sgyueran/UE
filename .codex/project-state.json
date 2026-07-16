@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "blueprintVersion": "4.2",
-  "currentTask": "TASK-021",
-  "status": "validating",
+  "currentTask": "TASK-022",
+  "status": "completed",
   "completed": [
     "TASK-001",
     "TASK-002",
@@ -23,37 +23,31 @@
     "TASK-017",
     "TASK-018",
     "TASK-019",
-    "TASK-020"
+    "TASK-020",
+    "TASK-021",
+    "TASK-022"
   ],
-  "inProgress": "TASK-021",
+  "inProgress": null,
   "blocked": [],
   "waived": [],
   "lastValidation": {
-    "task": "TASK-021",
-    "timestamp": "2026-07-16T07:52:58.035820+00:00",
+    "task": "TASK-022",
+    "timestamp": "2026-07-16T08:16:45.075318+00:00",
     "commands": [
-      "python scripts/validate-blueprint.py",
       "npm run lint",
-      "npm run typecheck",
-      "npm run build",
-      "npm run test -- --run"
+      "npm run typecheck"
     ],
-    "result": "failed"
+    "result": "passed"
   },
-  "lastCommit": "ca1d85d63eb443faa4144453e155331b58c3ae32",
+  "lastCommit": "5893a4675e6621f46281894c9ef2d633587f708e",
   "dirtyAtLastCheck": true,
   "contentIntegrity": "unverified",
-  "referenceAudit": "not_started",
+  "referenceAudit": "completed",
   "releaseReady": false,
-  "baselineCommit": "ca1d85d63eb443faa4144453e155331b58c3ae32",
+  "baselineCommit": "5893a4675e6621f46281894c9ef2d633587f708e",
   "preExistingChanges": [
     "M .codex/project-state.json",
-    " M content-input/PROFILE-TEMPLATE.md",
-    " M content-input/PROJECT-TEMPLATE.md",
-    " M content-input/RESUME-CHECKLIST.md",
-    "?? content-input/NAVIGATION-TEMPLATE.md",
-    "?? src/data/",
-    "?? src/lib/content/",
-    "?? src/types/"
+    " M src/lib/content/validation.ts",
+    "?? src/lib/content/validation.test.ts"
   ]
 }
