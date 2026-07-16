@@ -10,7 +10,7 @@ export function HomeFeaturedProjects() {
     <section aria-labelledby="featured-projects-title" className="border-y border-border/70 bg-surface/40">
       <div className="app-container py-section" id="selected-work">
         <div className="flex flex-col gap-md md:flex-row md:items-end md:justify-between">
-          <div className="max-w-3xl">
+          <div className="max-w-[48rem]">
             <p className="mb-sm text-sm font-semibold uppercase text-primary">Selected work</p>
             <h2 className="text-3xl font-semibold leading-tight text-text md:text-4xl" id="featured-projects-title">
               Public project evidence will appear only after verification.
@@ -33,8 +33,8 @@ export function HomeFeaturedProjects() {
         ) : (
           <div className="mt-2xl rounded-lg border border-dashed border-border bg-background/55 p-xl">
             <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted">Empty public showcase</p>
-            <p className="mt-md max-w-2xl text-xl font-semibold text-text">No verified public projects are available yet.</p>
-            <p className="mt-sm max-w-2xl text-sm leading-6 text-muted">
+            <p className="mt-md max-w-[42rem] text-xl font-semibold text-text">No verified public projects are available yet.</p>
+            <p className="mt-sm max-w-[42rem] text-sm leading-6 text-muted">
               Project cards will remain unavailable until project title, role, media permissions, outcomes, and evidence
               sources pass the publication gate.
             </p>

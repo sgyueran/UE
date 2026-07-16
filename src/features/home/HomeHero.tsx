@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 import { useReducedMotion } from "@/app/providers";
 import { getPortfolioContentModel } from "@/lib/content";
-import { canUseDesktopMotion, motionEase } from "@/lib/motion";
+import { canUseDesktopMotion, motionEase, shouldUseReducedMotion } from "@/lib/motion";
 import { gsap } from "gsap";
 
 function isSafeText(value: string): boolean {
@@ -27,14 +27,20 @@ export function HomeHero() {
   useEffect(() => {
     const root = rootRef.current;
 
-    if (!root || prefersReducedMotion) {
+    if (!root) {
+      return;
+    }
+
+    const revealItems = gsap.utils.toArray<HTMLElement>("[data-hero-reveal]", root);
+    const parallaxItems = gsap.utils.toArray<HTMLElement>("[data-hero-parallax]", root);
+
+    if (prefersReducedMotion || shouldUseReducedMotion()) {
+      gsap.set(revealItems, { clearProps: "opacity,visibility,transform" });
+      gsap.set(parallaxItems, { clearProps: "transform" });
       return;
     }
 
     const context = gsap.context(() => {
-      const revealItems = gsap.utils.toArray<HTMLElement>("[data-hero-reveal]");
-      const parallaxItems = gsap.utils.toArray<HTMLElement>("[data-hero-parallax]");
-
       gsap.from(revealItems, {
         autoAlpha: 0,
         duration: 0.7,
@@ -109,7 +115,7 @@ export function HomeHero() {
           >
             {title}
           </h1>
-          <p className="mt-lg max-w-2xl text-lg leading-8 text-muted sm:text-xl" data-hero-reveal>
+          <p className="mt-lg max-w-[42rem] text-lg leading-8 text-muted sm:text-xl" data-hero-reveal>
             {intro}
           </p>
 

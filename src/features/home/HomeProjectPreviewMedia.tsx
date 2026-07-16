@@ -20,7 +20,7 @@ export function HomeProjectPreviewMedia({ project }: HomeProjectPreviewMediaProp
   if (!video) {
     return (
       <div className="flex aspect-video items-center justify-center rounded-lg border border-dashed border-border bg-background/65 p-lg text-center">
-        <p className="max-w-sm text-sm leading-6 text-muted">Verified public video is unavailable for this project.</p>
+        <p className="max-w-[24rem] text-sm leading-6 text-muted">Verified public video is unavailable for this project.</p>
       </div>
     );
   }
@@ -48,7 +48,7 @@ export function HomeProjectPreviewMedia({ project }: HomeProjectPreviewMediaProp
     <div className="rounded-lg border border-border bg-background/65 p-sm">
       {isUnavailable ? (
         <div className="flex aspect-video items-center justify-center rounded-sm bg-card p-lg text-center">
-          <p className="max-w-sm text-sm leading-6 text-muted">Video preview failed to load. Project text remains available.</p>
+          <p className="max-w-[24rem] text-sm leading-6 text-muted">Video preview failed to load. Project text remains available.</p>
         </div>
       ) : (
         <video

@@ -27,7 +27,7 @@ export function ProjectsListing() {
 
   return (
     <section aria-labelledby="projects-list-title" className="app-container py-section">
-      <div className="max-w-3xl">
+      <div className="max-w-[48rem]">
         <p className="mb-sm text-sm font-semibold uppercase text-primary">Projects</p>
         <h1 className="text-4xl font-semibold leading-tight text-text md:text-6xl" id="projects-list-title">
           Verified project index
@@ -97,7 +97,7 @@ export function ProjectsListing() {
         <div className="mt-2xl rounded-lg border border-dashed border-border bg-card/60 p-xl">
           <p className="font-mono text-xs uppercase tracking-[0.16em] text-muted">No public projects</p>
           <h2 className="mt-md text-2xl font-semibold text-text">Project entries are unavailable until verified.</h2>
-          <p className="mt-sm max-w-2xl text-sm leading-6 text-muted">
+          <p className="mt-sm max-w-[42rem] text-sm leading-6 text-muted">
             Add verified project titles, responsibilities, media permissions, outcomes, and evidence sources before
             publishing project cards here.
           </p>

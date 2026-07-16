@@ -21,7 +21,7 @@ export function ProjectListMediaPreview({ project }: ProjectListMediaPreviewProp
   if (hasFailed) {
     return (
       <div className="flex aspect-video items-center justify-center rounded-sm bg-background p-lg text-center">
-        <p className="max-w-sm text-sm leading-6 text-muted">Media preview is unavailable. Project details remain readable.</p>
+        <p className="max-w-[24rem] text-sm leading-6 text-muted">Media preview is unavailable. Project details remain readable.</p>
       </div>
     );
   }
@@ -70,7 +70,7 @@ export function ProjectListMediaPreview({ project }: ProjectListMediaPreviewProp
 
   return (
     <div className="flex aspect-video items-center justify-center rounded-sm border border-dashed border-border bg-background/70 p-lg text-center">
-      <p className="max-w-sm text-sm leading-6 text-muted">No verified public media preview.</p>
+      <p className="max-w-[24rem] text-sm leading-6 text-muted">No verified public media preview.</p>
     </div>
   );
 }
