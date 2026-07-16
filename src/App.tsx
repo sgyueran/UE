@@ -1,7 +1,5 @@
+import { AppRouter } from "@/app/router";
+
 export function App() {
-  return (
-    <main>
-      <h1>UE Portfolio</h1>
-    </main>
-  );
+  return <AppRouter />;
 }
