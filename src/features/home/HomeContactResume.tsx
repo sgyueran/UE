@@ -1,8 +1,8 @@
-import { getPortfolioProfile } from "@/lib/content";
+import { getPortfolioProfile, hasTodoUserInput } from "@/lib/content";
 import type { ExternalLink } from "@/types/content";
 
 function isSafeHref(value: string): boolean {
-  return value.trim().length > 0 && value !== "TODO(USER_INPUT)" && value !== "#";
+  return value.trim().length > 0 && !hasTodoUserInput(value) && value !== "#";
 }
 
 function isPublicVerifiedLink(link: ExternalLink): boolean {

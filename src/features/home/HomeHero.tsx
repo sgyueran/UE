@@ -1,12 +1,12 @@
 import { useEffect, useRef } from "react";
 
 import { useReducedMotion } from "@/app/providers";
-import { getPortfolioContentModel } from "@/lib/content";
+import { getPortfolioContentModel, hasTodoUserInput } from "@/lib/content";
 import { canUseDesktopMotion, motionEase, shouldUseReducedMotion } from "@/lib/motion";
 import { gsap } from "gsap";
 
 function isSafeText(value: string): boolean {
-  return value.trim().length > 0 && value !== "TODO(USER_INPUT)";
+  return value.trim().length > 0 && !hasTodoUserInput(value);
 }
 
 export function HomeHero() {

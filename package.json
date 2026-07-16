@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit --pretty false",
     "build": "tsc --noEmit --pretty false && vite build",
     "test": "vitest --passWithNoTests",
+    "validate:publication": "node scripts/validate-publication-safety.mjs",
     "test:e2e:install": "playwright install chromium",
     "test:e2e": "npm run build && playwright test"
   },

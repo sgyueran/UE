@@ -22,7 +22,7 @@ export function getPortfolioProfile(): ContentResult<PortfolioProfile> {
     return {
       status: "incomplete",
       data: portfolioProfile,
-      issues: [createTodoIssue("Profile contains TODO(USER_INPUT) placeholders awaiting verified input.")],
+      issues: [createTodoIssue("Profile contains unresolved user-input placeholders awaiting verified input.")],
     };
   }
 

@@ -1,7 +1,7 @@
-import { getPortfolioProfile } from "@/lib/content";
+import { getPortfolioProfile, hasTodoUserInput } from "@/lib/content";
 
 function isSafeText(value: string): boolean {
-  return value.trim().length > 0 && value !== "TODO(USER_INPUT)";
+  return value.trim().length > 0 && !hasTodoUserInput(value);
 }
 
 const workflowPrinciples = [

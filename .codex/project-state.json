@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "blueprintVersion": "4.2",
-  "currentTask": "TASK-043",
+  "currentTask": "TASK-044",
   "status": "completed",
   "completed": [
     "TASK-001",
@@ -46,14 +46,15 @@
     "TASK-040",
     "TASK-041",
     "TASK-042",
-    "TASK-043"
+    "TASK-043",
+    "TASK-044"
   ],
   "inProgress": null,
   "blocked": [],
   "waived": [],
   "lastValidation": {
-    "task": "TASK-043",
-    "timestamp": "2026-07-16T13:40:12.822020+00:00",
+    "task": "TASK-044",
+    "timestamp": "2026-07-16T13:54:00.119241+00:00",
     "commands": [
       "python scripts/validate-blueprint.py",
       "python scripts/validate-skills.py",
@@ -63,16 +64,16 @@
       "npm run lint",
       "npm run typecheck",
       "npm run build",
-      "git diff --check",
-      "node build path check"
+      "npm run validate:publication",
+      "git diff --check"
     ],
     "result": "passed"
   },
-  "lastCommit": "40064e91964e83625580d0bc35cef281c4499763",
+  "lastCommit": "b778e48585b9f38b6ddcaf65ef2293aa31b8021e",
   "dirtyAtLastCheck": false,
   "contentIntegrity": "unverified",
   "referenceAudit": "completed",
   "releaseReady": false,
-  "baselineCommit": "40064e91964e83625580d0bc35cef281c4499763",
+  "baselineCommit": "b778e48585b9f38b6ddcaf65ef2293aa31b8021e",
   "preExistingChanges": []
 }
