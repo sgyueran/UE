@@ -8,6 +8,7 @@ dist/
 Thumbs.db
 .vscode/
 .idea/
+.vs/
 playwright-report/
 test-results/
 coverage/
