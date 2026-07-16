@@ -3,6 +3,7 @@ import type { ComponentType } from "react";
 import { AboutPage } from "@/pages/AboutPage";
 import { HomePage } from "@/pages/HomePage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
+import { ProjectDetailPage } from "@/pages/ProjectDetailPage";
 import { ProjectsPage } from "@/pages/ProjectsPage";
 
 export type AppRoute = {
@@ -21,6 +22,11 @@ export const routes = [
     path: "/projects",
     label: "Projects",
     component: ProjectsPage,
+  },
+  {
+    path: "/projects/:slug",
+    label: "Project detail",
+    component: ProjectDetailPage,
   },
   {
     path: "/about",
@@ -43,7 +49,25 @@ export function normalizePath(pathname: string) {
   return pathname || "/";
 }
 
+function routeMatches(routePath: string, pathname: string) {
+  if (routePath === pathname) {
+    return true;
+  }
+
+  if (!routePath.includes(":")) {
+    return false;
+  }
+
+  const routeSegments = routePath.split("/").filter(Boolean);
+  const pathSegments = pathname.split("/").filter(Boolean);
+
+  return (
+    routeSegments.length === pathSegments.length &&
+    routeSegments.every((segment, index) => segment.startsWith(":") || segment === pathSegments[index])
+  );
+}
+
 export function matchRoute(pathname: string): AppRoute {
   const normalizedPath = normalizePath(pathname);
-  return routes.find((route) => route.path === normalizedPath) ?? notFoundRoute;
+  return routes.find((route) => routeMatches(route.path, normalizedPath)) ?? notFoundRoute;
 }
