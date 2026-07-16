@@ -1,4 +1,4 @@
-import { HomeFeaturedProjects, HomeHero, HomeSkillsDirection } from "@/features/home";
+import { HomeContactResume, HomeFeaturedProjects, HomeHero, HomeSkillsDirection } from "@/features/home";
 
 export function HomePage() {
   return (
@@ -6,6 +6,7 @@ export function HomePage() {
       <HomeHero />
       <HomeSkillsDirection />
       <HomeFeaturedProjects />
+      <HomeContactResume />
     </main>
   );
 }

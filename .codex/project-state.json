@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "blueprintVersion": "4.2",
-  "currentTask": "TASK-031",
-  "status": "completed",
+  "currentTask": "TASK-024",
+  "status": "blocked",
   "completed": [
     "TASK-001",
     "TASK-002",
@@ -29,29 +29,37 @@
     "TASK-023",
     "TASK-025",
     "TASK-027",
-    "TASK-031"
+    "TASK-031",
+    "TASK-026"
   ],
   "inProgress": null,
-  "blocked": [],
+  "blocked": [
+    {
+      "task": "TASK-024",
+      "reason": "Missing GSAP dependency; package.json and package-lock.json are outside TASK-024 Allowed Files",
+      "timestamp": "2026-07-16T08:35:29.295751+00:00"
+    }
+  ],
   "waived": [],
   "lastValidation": {
-    "task": "TASK-031",
-    "timestamp": "2026-07-16T08:33:40.173421+00:00",
+    "task": "TASK-026",
+    "timestamp": "2026-07-16T08:34:49.132028+00:00",
     "commands": [
       "npm run lint",
       "npm run typecheck"
     ],
     "result": "passed"
   },
-  "lastCommit": "7bcf785b65196fce4fff4fc7193a46d5911d40a1",
+  "lastCommit": "a740f57bbe44ee47ad2ec8a2764caffc6bc81ef3",
   "dirtyAtLastCheck": true,
   "contentIntegrity": "unverified",
   "referenceAudit": "completed",
   "releaseReady": false,
-  "baselineCommit": "7bcf785b65196fce4fff4fc7193a46d5911d40a1",
+  "baselineCommit": "a740f57bbe44ee47ad2ec8a2764caffc6bc81ef3",
   "preExistingChanges": [
     "M .codex/project-state.json",
+    " M src/features/home/index.ts",
     " M src/pages/HomePage.tsx",
-    "?? src/features/"
+    "?? src/features/home/HomeContactResume.tsx"
   ]
 }
