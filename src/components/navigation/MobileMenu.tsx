@@ -13,11 +13,13 @@ export function MobileMenu({ currentPath }: MobileMenuProps) {
   const menuId = useId();
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const menuRef = useRef<HTMLElement | null>(null);
+  const restoreFocusOnCloseRef = useRef(false);
 
   useEffect(() => {
     if (!isOpen) {
-      if (triggerRef.current && document.activeElement === menuRef.current) {
-        triggerRef.current.focus();
+      if (restoreFocusOnCloseRef.current) {
+        restoreFocusOnCloseRef.current = false;
+        triggerRef.current?.focus();
       }
       return undefined;
     }
@@ -29,6 +31,7 @@ export function MobileMenu({ currentPath }: MobileMenuProps) {
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
+        restoreFocusOnCloseRef.current = true;
         setIsOpen(false);
       }
     };
