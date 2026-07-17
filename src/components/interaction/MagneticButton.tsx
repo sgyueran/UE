@@ -30,7 +30,7 @@ export function MagneticButton({
   return (
     <button
       className={cn(
-        "inline-flex min-h-11 items-center justify-center rounded-pill border border-primary bg-primary px-lg text-sm font-medium text-white transition-[background-color,border-color,transform] duration-200 ease-[var(--ease-standard)] hover:bg-primary/90 focus-visible:outline-primary",
+        "inline-flex min-h-11 items-center justify-center rounded-pill border border-primary-strong bg-primary-strong px-lg text-sm font-medium text-white transition-[background-color,border-color,transform] duration-200 ease-[var(--ease-standard)] hover:bg-primary-strong/90 focus-visible:outline-primary",
         className,
       )}
       onBlur={(event) => {

@@ -1,10 +1,19 @@
-import type { ComponentType } from "react";
+import { lazy, type ComponentType } from "react";
 
-import { AboutPage } from "@/pages/AboutPage";
 import { HomePage } from "@/pages/HomePage";
-import { NotFoundPage } from "@/pages/NotFoundPage";
-import { ProjectDetailPage } from "@/pages/ProjectDetailPage";
-import { ProjectsPage } from "@/pages/ProjectsPage";
+
+const ProjectsPage = lazy(() =>
+  import("@/pages/ProjectsPage").then((module) => ({ default: module.ProjectsPage })),
+);
+const ProjectDetailPage = lazy(() =>
+  import("@/pages/ProjectDetailPage").then((module) => ({ default: module.ProjectDetailPage })),
+);
+const AboutPage = lazy(() =>
+  import("@/pages/AboutPage").then((module) => ({ default: module.AboutPage })),
+);
+const NotFoundPage = lazy(() =>
+  import("@/pages/NotFoundPage").then((module) => ({ default: module.NotFoundPage })),
+);
 
 export type AppRoute = {
   path: string;

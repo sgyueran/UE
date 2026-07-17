@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  base: "/UE/",
   plugins: [tailwindcss(), react()],
   resolve: {
     alias: {

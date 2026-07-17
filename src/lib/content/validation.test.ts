@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { TODO_USER_INPUT, type ContentProvenance, type PortfolioProject } from "@/types/content";
+import { TODO_USER_INPUT, type ContentProvenance, type PortfolioProject, type ProjectMedia } from "@/types/content";
 
 import { validateProjectPublicationSafety } from "./validation";
 
@@ -76,5 +76,65 @@ describe("validateProjectPublicationSafety", () => {
 
   it("blocks TODO(USER_INPUT) from being treated as verified content", () => {
     expect(hasErrorCode(createVerifiedPublicProject({ title: TODO_USER_INPUT }), "content.project_todo_user_input")).toBe(true);
+  });
+
+  it("allows a safe empty media state to build", () => {
+    expect(validateProjectPublicationSafety(createVerifiedPublicProject({ media: [] }))).toEqual([]);
+  });
+
+  it("blocks unverified public media", () => {
+    const media: ProjectMedia = {
+      id: "test-image",
+      type: "image",
+      src: "/UE/media/test-image.webp",
+      alt: "Verified test image",
+      publicationStatus: "public",
+      provenance: {
+        status: "draft",
+        source: "test fixture",
+        note: "Unit-test fixture, not portfolio content.",
+      },
+    };
+
+    expect(hasErrorCode(createVerifiedPublicProject({ media: [media] }), "content.media_unverified")).toBe(true);
+  });
+
+  it("blocks unauthorized media from public output", () => {
+    const media: ProjectMedia = {
+      id: "test-image",
+      type: "image",
+      src: "/UE/media/test-image.webp",
+      alt: "Verified test image",
+      publicationStatus: "permission_required",
+      provenance: verifiedProvenance,
+    };
+
+    expect(hasErrorCode(createVerifiedPublicProject({ media: [media] }), "content.media_not_public")).toBe(true);
+  });
+
+  it("blocks invalid media URLs", () => {
+    const media: ProjectMedia = {
+      id: "test-image",
+      type: "image",
+      src: "https://example.com/test-image.webp",
+      alt: "Verified test image",
+      publicationStatus: "public",
+      provenance: verifiedProvenance,
+    };
+
+    expect(hasErrorCode(createVerifiedPublicProject({ media: [media] }), "content.media_invalid_url")).toBe(true);
+  });
+
+  it("blocks public root asset paths that omit the GitHub Pages base path", () => {
+    const media: ProjectMedia = {
+      id: "test-image",
+      type: "image",
+      src: "/assets/test-image.webp",
+      alt: "Verified test image",
+      publicationStatus: "public",
+      provenance: verifiedProvenance,
+    };
+
+    expect(hasErrorCode(createVerifiedPublicProject({ media: [media] }), "content.media_invalid_base_path")).toBe(true);
   });
 });

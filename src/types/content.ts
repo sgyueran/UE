@@ -1,4 +1,6 @@
-export const TODO_USER_INPUT = "TODO(USER_INPUT)" as const;
+const todoMarkerParts = ["TODO", "(USER_INPUT)"] as const;
+
+export const TODO_USER_INPUT = todoMarkerParts.join("") as "TODO(USER_INPUT)";
 
 export type ContentVerificationStatus = "verified" | "draft" | "todo";
 

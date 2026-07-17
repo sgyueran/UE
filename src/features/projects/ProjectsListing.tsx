@@ -42,7 +42,7 @@ export function ProjectsListing() {
         <div aria-label="Project filters" className="mt-xl flex flex-wrap gap-sm">
           <button
             aria-pressed={activeFilter === allFilter}
-            className="min-h-10 rounded-pill border border-primary bg-primary px-md text-sm font-medium text-white focus-visible:outline-primary"
+            className="min-h-10 rounded-pill border border-primary-strong bg-primary-strong px-md text-sm font-medium text-white focus-visible:outline-primary"
             onClick={() => setActiveFilter(allFilter)}
             type="button"
           >

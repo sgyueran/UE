@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit --pretty false",
     "build": "tsc --noEmit --pretty false && vite build",
     "test": "vitest --passWithNoTests",
+    "validate:publication": "node scripts/validate-publication-safety.mjs",
     "test:e2e:install": "playwright install chromium",
     "test:e2e": "npm run build && playwright test"
   },
@@ -37,6 +38,7 @@
     "eslint-plugin-react-refresh": "^0.5.3",
     "globals": "^17.7.0",
     "prettier": "^3.9.5",
+    "rollup-plugin-visualizer": "^7.0.1",
     "tailwindcss": "^4.3.2",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.64.0",

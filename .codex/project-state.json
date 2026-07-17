@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "blueprintVersion": "4.2",
-  "currentTask": "TASK-042",
+  "currentTask": "TASK-046",
   "status": "completed",
   "completed": [
     "TASK-001",
@@ -45,30 +45,38 @@
     "TASK-039",
     "TASK-040",
     "TASK-041",
-    "TASK-042"
+    "TASK-042",
+    "TASK-043",
+    "TASK-044",
+    "TASK-045",
+    "TASK-046"
   ],
   "inProgress": null,
   "blocked": [],
   "waived": [],
   "lastValidation": {
-    "task": "TASK-042",
-    "timestamp": "2026-07-16T10:52:52.084456+00:00",
+    "task": "TASK-046",
+    "timestamp": "2026-07-16T16:30:01.091247+00:00",
     "commands": [
       "python scripts/validate-blueprint.py",
+      "python scripts/validate-skills.py",
+      "python scripts/validate-sprints.py",
       "npm run lint",
       "npm run typecheck",
-      "npm run build"
+      "npm run build",
+      "npm run test",
+      "npm run test:e2e",
+      "npm run validate:publication",
+      "node scripts/accessibility-audit.mjs",
+      "git diff --check"
     ],
     "result": "passed"
   },
-  "lastCommit": "d520972160f2ead58aff0e10ece92a80218ab1ed",
-  "dirtyAtLastCheck": true,
+  "lastCommit": "fc39713be437b47d6f2dc87a9275d1ddd9708967",
+  "dirtyAtLastCheck": false,
   "contentIntegrity": "unverified",
   "referenceAudit": "completed",
   "releaseReady": false,
-  "baselineCommit": "d520972160f2ead58aff0e10ece92a80218ab1ed",
-  "preExistingChanges": [
-    "M .codex/project-state.json",
-    " M src/features/project-detail/ProjectDetail.tsx"
-  ]
+  "baselineCommit": "fc39713be437b47d6f2dc87a9275d1ddd9708967",
+  "preExistingChanges": []
 }

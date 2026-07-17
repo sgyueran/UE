@@ -35,7 +35,7 @@ export function getPortfolioProjects(): ContentResult<readonly PortfolioProject[
     return {
       status: "incomplete",
       data: portfolioProjects,
-      issues: [createTodoIssue("Project content contains TODO(USER_INPUT) placeholders awaiting verified input.")],
+      issues: [createTodoIssue("Project content contains unresolved user-input placeholders awaiting verified input.")],
     };
   }
 

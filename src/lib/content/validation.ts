@@ -139,6 +139,40 @@ function isPublicStatus(status: PublicationStatus): boolean {
   return status === "public";
 }
 
+const invalidPublicUrlPatterns = [
+  /example\.com/i,
+  /localhost/i,
+  /127\.0\.0\.1/i,
+  /file:\/\//i,
+  /[A-Za-z]:\\/,
+] as const;
+
+function validatePublicUrl(value: string, codePrefix: string, field: string): readonly ContentIssue[] {
+  const issues: ContentIssue[] = [];
+  const trimmedValue = value.trim();
+
+  if (!hasRequiredString(trimmedValue)) {
+    return [createContentIssue(`${codePrefix}_missing_url`, `Public URL ${field} is missing or unverified.`, "error", field)];
+  }
+
+  if (invalidPublicUrlPatterns.some((pattern) => pattern.test(trimmedValue))) {
+    issues.push(createContentIssue(`${codePrefix}_invalid_url`, `Public URL ${field} is not release-safe.`, "error", field));
+  }
+
+  if (trimmedValue.startsWith("/assets/") || (trimmedValue.startsWith("/") && !trimmedValue.startsWith("/UE/"))) {
+    issues.push(
+      createContentIssue(
+        `${codePrefix}_invalid_base_path`,
+        `Public URL ${field} must include the /UE/ GitHub Pages base path.`,
+        "error",
+        field,
+      ),
+    );
+  }
+
+  return issues;
+}
+
 function validatePublicLink(link: ExternalLink): readonly ContentIssue[] {
   const issues: ContentIssue[] = [];
 
@@ -163,12 +197,14 @@ function validatePublicLink(link: ExternalLink): readonly ContentIssue[] {
     issues.push(
       createContentIssue(
         "content.link_todo_user_input",
-        `Link ${link.id} still contains TODO(USER_INPUT).`,
+        `Link ${link.id} still contains an unresolved user-input placeholder.`,
         "error",
         `links.${link.id}`,
       ),
     );
   }
+
+  issues.push(...validatePublicUrl(link.href, "content.link", `links.${link.id}.href`));
 
   return issues;
 }
@@ -197,11 +233,17 @@ function validatePublicMedia(media: ProjectMedia): readonly ContentIssue[] {
     issues.push(
       createContentIssue(
         "content.media_todo_user_input",
-        `Media ${media.id} still contains TODO(USER_INPUT).`,
+        `Media ${media.id} still contains an unresolved user-input placeholder.`,
         "error",
         `media.${media.id}`,
       ),
     );
+  }
+
+  issues.push(...validatePublicUrl(media.src, "content.media", `media.${media.id}.src`));
+
+  if (media.poster !== undefined) {
+    issues.push(...validatePublicUrl(media.poster, "content.media_poster", `media.${media.id}.poster`));
   }
 
   return issues;
@@ -300,7 +342,7 @@ export function validateProjectPublicationSafety(project: PortfolioProject): rea
     issues.push(
       createContentIssue(
         "content.project_todo_user_input",
-        "Project still contains TODO(USER_INPUT) placeholders.",
+        "Project still contains unresolved user-input placeholders.",
         "error",
       ),
     );

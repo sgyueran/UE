@@ -1,8 +1,8 @@
-import { getPortfolioProfile } from "@/lib/content";
+import { getPortfolioProfile, hasTodoUserInput } from "@/lib/content";
 import type { ExternalLink } from "@/types/content";
 
 function isSafeHref(value: string): boolean {
-  return value.trim().length > 0 && value !== "TODO(USER_INPUT)" && value !== "#";
+  return value.trim().length > 0 && !hasTodoUserInput(value) && value !== "#";
 }
 
 function isPublicVerifiedLink(link: ExternalLink): boolean {
@@ -36,7 +36,7 @@ export function HomeContactResume() {
             <h3 className="text-lg font-semibold text-text">Direct contact</h3>
             {hasEmail ? (
               <a
-                className="mt-md inline-flex min-h-11 items-center justify-center rounded-pill border border-primary bg-primary px-lg text-sm font-medium text-white hover:bg-primary/90 focus-visible:outline-primary"
+                className="mt-md inline-flex min-h-11 items-center justify-center rounded-pill border border-primary-strong bg-primary-strong px-lg text-sm font-medium text-white hover:bg-primary-strong/90 focus-visible:outline-primary"
                 href={`mailto:${email}`}
               >
                 Email
@@ -52,7 +52,7 @@ export function HomeContactResume() {
             <h3 className="text-lg font-semibold text-text">Resume</h3>
             {hasResume ? (
               <a
-                className="mt-md inline-flex min-h-11 items-center justify-center rounded-pill border border-primary bg-primary px-lg text-sm font-medium text-white hover:bg-primary/90 focus-visible:outline-primary"
+                className="mt-md inline-flex min-h-11 items-center justify-center rounded-pill border border-primary-strong bg-primary-strong px-lg text-sm font-medium text-white hover:bg-primary-strong/90 focus-visible:outline-primary"
                 href={resume?.path}
               >
                 Download resume

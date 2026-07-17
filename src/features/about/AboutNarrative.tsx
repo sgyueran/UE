@@ -1,7 +1,7 @@
-import { getPortfolioProfile } from "@/lib/content";
+import { getPortfolioProfile, hasTodoUserInput } from "@/lib/content";
 
 function isSafeText(value: string): boolean {
-  return value.trim().length > 0 && value !== "TODO(USER_INPUT)";
+  return value.trim().length > 0 && !hasTodoUserInput(value);
 }
 
 const workflowPrinciples = [
@@ -19,7 +19,7 @@ export function AboutNarrative() {
       : "A public About narrative is pending verified user-provided background, specialization, and work direction.";
 
   return (
-    <main className="app-container py-section">
+    <div className="app-container py-section">
       <section aria-labelledby="about-title" className="grid gap-2xl lg:grid-cols-[0.85fr_1.15fr]">
         <div>
           <p className="mb-sm text-sm font-semibold uppercase text-primary">About</p>
@@ -51,6 +51,6 @@ export function AboutNarrative() {
           </article>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
