@@ -108,6 +108,20 @@ jobs:
               return { failedChecks, pendingChecks, failedStatuses, pendingStatuses };
             }
 
+            function warnCommentFailure(error) {
+              const status = error?.status ?? "unknown";
+              const message = error?.message ?? String(error);
+              const requestId = error?.response?.headers?.["x-github-request-id"] ?? "unavailable";
+              const acceptedPermissions =
+                error?.response?.headers?.["x-accepted-github-permissions"] ?? "unavailable";
+
+              core.warning(
+                `Unable to publish PR monitor comment: HTTP ${status}: ${message}; ` +
+                  `request-id=${requestId}; accepted-permissions=${acceptedPermissions}. ` +
+                  "The monitor report is available in the job summary.",
+              );
+            }
+
             async function upsertComment(number, body) {
               const comments = await github.paginate(github.rest.issues.listComments, {
                 owner,
@@ -118,21 +132,29 @@ jobs:
 
               const previous = comments.find((comment) => comment.body?.includes(marker));
               if (previous) {
-                await github.rest.issues.updateComment({
-                  owner,
-                  repo,
-                  comment_id: previous.id,
-                  body
-                });
+                try {
+                  await github.rest.issues.updateComment({
+                    owner,
+                    repo,
+                    comment_id: previous.id,
+                    body
+                  });
+                } catch (error) {
+                  warnCommentFailure(error);
+                }
                 return;
               }
 
-              await github.rest.issues.createComment({
-                owner,
-                repo,
-                issue_number: number,
-                body
-              });
+              try {
+                await github.rest.issues.createComment({
+                  owner,
+                  repo,
+                  issue_number: number,
+                  body
+                });
+              } catch (error) {
+                warnCommentFailure(error);
+              }
             }
 
             const pulls = await listOpenPullRequests();
@@ -176,6 +198,15 @@ jobs:
             ${actionItems.map((item) => `- ${item}`).join("\n")}
 
             To ask OpenCode for help, comment with \`/opencode\` or \`/oc\` and a specific instruction.`;
+
+              await core.summary.addRaw(body).write();
+
+              const isFork = pull.head.repo?.full_name !== `${owner}/${repo}`;
+              const isDependabot = pull.user?.login === "dependabot[bot]";
+              if (isFork || isDependabot) {
+                core.notice("Skipping PR monitor comment write for an untrusted PR context.");
+                continue;
+              }
 
               await upsertComment(pull.number, body);
             }
