@@ -26,13 +26,39 @@ export function AppRouter() {
   }, []);
 
   useEffect(() => {
-    if (mainRef.current) {
-      const heading = mainRef.current.querySelector("h1");
-      if (heading) {
-        (heading as HTMLElement).setAttribute("tabindex", "-1");
-        (heading as HTMLElement).focus({ preventScroll: true });
-      }
+    const main = mainRef.current;
+
+    if (!main) {
+      return undefined;
     }
+
+    function focusRouteHeading(): boolean {
+      const heading = main?.querySelector("h1");
+
+      if (!(heading instanceof HTMLElement) || heading.getClientRects().length === 0) {
+        return false;
+      }
+
+      heading.setAttribute("tabindex", "-1");
+      heading.focus({ preventScroll: true });
+      return document.activeElement === heading;
+    }
+
+    if (focusRouteHeading()) {
+      return undefined;
+    }
+
+    const observer = new MutationObserver(() => {
+      if (focusRouteHeading()) {
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(main, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+    };
   }, [path]);
 
   const route = useMemo(() => matchRoute(path), [path]);
