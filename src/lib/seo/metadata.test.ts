@@ -31,4 +31,33 @@ describe("SEO metadata", () => {
     expect(metadata.openGraph.image).toBeNull();
     expect(metadata.twitter.image).toBeNull();
   });
+
+  it("uses the project detail copy for dynamic project routes", () => {
+    const metadata = createSeoMetadata("/projects/ue5-ability-system");
+
+    expect(metadata.title).toBe("Project detail preview | UE Portfolio");
+    expect(metadata.canonicalUrl).toBe("https://sgyueran.github.io/UE/projects/ue5-ability-system");
+    expect(metadata.robots).toBe("noindex,nofollow");
+  });
+
+  it("uses the not-found copy for unknown routes", () => {
+    const metadata = createSeoMetadata("/definitely-not-a-route");
+
+    expect(metadata.title).toBe("Page not found | UE Portfolio");
+    expect(metadata.canonicalUrl).toBe("https://sgyueran.github.io/UE/definitely-not-a-route");
+    expect(metadata.robots).toBe("noindex,nofollow");
+  });
+
+  it("points the favicon at the GitHub Pages asset path", () => {
+    expect(createSeoMetadata("/").faviconPath).toBe("/UE/favicon.svg");
+    expect(createSeoMetadata("/").faviconPath).not.toMatch(/^\/assets\//);
+  });
+
+  it("documents missing verified fields without inventing them", () => {
+    const metadata = createSeoMetadata("/about");
+
+    expect(metadata.missingFields).toContain("author public display name");
+    expect(metadata.missingFields).toContain("default Open Graph image");
+    expect(metadata.missingFields.length).toBeGreaterThan(0);
+  });
 });
