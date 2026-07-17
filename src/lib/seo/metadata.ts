@@ -4,7 +4,7 @@ export type SeoMetadata = {
   title: string;
   description: string;
   canonicalUrl: string;
-  robots: "noindex,nofollow";
+  robots: "index,follow" | "noindex,nofollow";
   openGraph: {
     title: string;
     description: string;
@@ -69,7 +69,7 @@ export function createSeoMetadata(path: string): SeoMetadata {
     title: copy.title,
     description: copy.description,
     canonicalUrl,
-    robots: deploymentConfig.indexingEnabled ? "noindex,nofollow" : "noindex,nofollow",
+    robots: deploymentConfig.indexingEnabled ? "index,follow" : "noindex,nofollow",
     openGraph: {
       title: copy.title,
       description: copy.description,
