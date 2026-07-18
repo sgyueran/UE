@@ -250,8 +250,12 @@ jobs:
             process.exit(1);
           });
           '@
-          Set-Content -LiteralPath "$env:RUNNER_TEMP\font-diagnostic.mjs" -Value $script -Encoding utf8
-          node "$env:RUNNER_TEMP\font-diagnostic.mjs"
+          Set-Content -LiteralPath "$env:GITHUB_WORKSPACE\font-diagnostic.tmp.mjs" -Value $script -Encoding utf8
+          try {
+            node "$env:GITHUB_WORKSPACE\font-diagnostic.tmp.mjs"
+          } finally {
+            Remove-Item -LiteralPath "$env:GITHUB_WORKSPACE\font-diagnostic.tmp.mjs" -Force -ErrorAction SilentlyContinue
+          }
 
       - name: Playwright end-to-end tests
         id: playwright
