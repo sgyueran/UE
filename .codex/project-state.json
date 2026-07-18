@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "blueprintVersion": "4.2",
-  "currentTask": "TASK-049",
+  "currentTask": "TASK-050",
   "status": "completed",
   "completed": [
     "TASK-001",
@@ -52,14 +52,15 @@
     "TASK-046",
     "TASK-047",
     "TASK-048",
-    "TASK-049"
+    "TASK-049",
+    "TASK-050"
   ],
   "inProgress": null,
   "blocked": [],
   "waived": [],
   "lastValidation": {
-    "task": "TASK-049",
-    "timestamp": "2026-07-18T08:33:58.526796+00:00",
+    "task": "TASK-050",
+    "timestamp": "2026-07-18T14:46:05.062878+00:00",
     "commands": [
       "python scripts/validate-blueprint.py",
       "python scripts/validate-skills.py",
@@ -72,15 +73,15 @@
       "npm run validate:publication",
       "node scripts/accessibility-audit.mjs",
       "git diff --check",
-      "gh run view 29636049058"
+      "bash -n deploy/smoke-check.sh"
     ],
     "result": "passed"
   },
-  "lastCommit": "9aa21601484c58eb2d0689f027ba026de667183e",
+  "lastCommit": "e1954cf3dafb1448297fcaa69627aad15ad2f481",
   "dirtyAtLastCheck": false,
   "contentIntegrity": "unverified",
   "referenceAudit": "completed",
   "releaseReady": false,
-  "baselineCommit": "318b501c71e3f605392ccc97debaa81ebd8fee64",
+  "baselineCommit": "e1954cf3dafb1448297fcaa69627aad15ad2f481",
   "preExistingChanges": []
 }
