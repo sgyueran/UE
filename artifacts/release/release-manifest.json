@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-18T15:32:23Z",
+  "branch": "codex/SPRINT-08-quality-ci-deployment",
+  "commit": "807ff8fbf6a3bbb7d2181295a2b0dbdb357d4b24",
+  "taskCount": 51,
+  "completedTaskCount": 51,
+  "sprintCount": 8,
+  "completedSprintCount": 8,
+  "ciRunId": 29648730192,
+  "ciHeadSha": "807ff8fbf6a3bbb7d2181295a2b0dbdb357d4b24",
+  "validations": {
+    "blueprint": "PASS",
+    "skills": "PASS",
+    "sprints": "PASS",
+    "npmCi": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "vitest": "PASS",
+    "playwright": "PASS",
+    "visual": "PASS",
+    "publicationSafety": "PASS",
+    "accessibilityAudit": "PASS",
+    "smokeScriptSyntax": "PASS",
+    "gitDiffCheck": "PASS",
+    "remoteCi": "PASS"
+  },
+  "testCounts": {
+    "vitest": 78,
+    "playwright": 20,
+    "visualBaselines": 4,
+    "accessibilityScans": 20,
+    "accessibilityViolations": 0
+  },
+  "build": {
+    "distTotalBytes": 631609,
+    "initialJsBytes": 346662,
+    "initialCssBytes": 35662,
+    "lazyChunks": {
+      "projectDetailBytes": 21330,
+      "projectsBytes": 4790,
+      "aboutBytes": 2021,
+      "notFoundBytes": 724
+    },
+    "fontAssetCount": 7,
+    "fontAssetBytes": 219532,
+    "sourceMapCount": 0,
+    "externalFontUrls": 0,
+    "rootAssetReferences": 0,
+    "duplicateBasePathReferences": 0,
+    "optimizationChange": "none; final measured release evidence only"
+  },
+  "deployment": {
+    "basePath": "/UE/",
+    "documentRoot": "/var/www/ue-portfolio/current",
+    "spaFallback": true,
+    "htmlCachePolicy": "no-store, no-cache, must-revalidate",
+    "hashedAssetCachePolicy": "public, max-age=31536000, immutable",
+    "mediaCachePolicy": "public, max-age=2592000",
+    "byteRanges": true,
+    "gzipTextTypes": true,
+    "tlsOwnership": "1Panel",
+    "nginxSyntaxExecuted": false,
+    "liveSmokeExecuted": false,
+    "secretsPresent": false,
+    "domainsPresent": false
+  },
+  "unresolvedOperatorGates": [
+    "production domain binding",
+    "1Panel TLS issuance",
+    "target server nginx -t",
+    "production smoke check via deploy/smoke-check.sh",
+    "optional media byte-range check"
+  ],
+  "verdict": "PASS"
+}

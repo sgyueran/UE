@@ -1,3 +1,5 @@
+import { expect, test } from "@playwright/test";
+
 const routes = [
   {
     path: "./",
@@ -26,14 +28,11 @@ const routes = [
   },
 ] as const;
 
-if (!process.env.VITEST_WORKER_ID) {
-  const { expect, test } = await import("@playwright/test");
-
-  test.describe("public routes smoke", () => {
-    for (const route of routes) {
-      test(`${route.path} loads directly without page errors`, async ({ page }) => {
-        const pageErrors: Error[] = [];
-        page.on("pageerror", (error) => pageErrors.push(error));
+test.describe("public routes smoke", () => {
+  for (const route of routes) {
+    test(`${route.path} loads directly without page errors`, async ({ page }) => {
+      const pageErrors: Error[] = [];
+      page.on("pageerror", (error) => pageErrors.push(error));
 
       await page.goto(route.path);
 
@@ -44,7 +43,6 @@ if (!process.env.VITEST_WORKER_ID) {
       await expect(page.locator("body")).not.toContainText("TODO(USER_INPUT)");
       expect(new URL(page.url()).pathname).not.toBe(route.expectedPath.replace("/UE", ""));
       expect(pageErrors).toEqual([]);
-      });
-    }
-  });
-}
+    });
+  }
+});

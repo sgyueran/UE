@@ -1,0 +1,131 @@
+name: ci
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - main
+    paths-ignore:
+      - ".codex/**"
+  push:
+    branches:
+      - develop
+      - main
+      - "codex/**"
+    paths-ignore:
+      - ".codex/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  CI: true
+
+jobs:
+  quality:
+    name: Quality checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate blueprint
+        run: python scripts/validate-blueprint.py
+
+      - name: Validate skills
+        run: python scripts/validate-skills.py
+
+      - name: Validate sprints
+        run: python scripts/validate-sprints.py
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Unit and component tests
+        run: npm run test -- --run
+
+      - name: Build
+        run: npm run build
+
+      - name: Publication safety
+        run: npm run validate:publication
+
+      - name: Whitespace check
+        run: git diff --check
+
+  browser:
+    name: Browser and visual checks
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install chromium
+
+      - name: Playwright end-to-end tests
+        id: playwright
+        run: npm run test:e2e
+
+      - name: Accessibility audit
+        id: accessibility
+        if: always()
+        run: node scripts/accessibility-audit.mjs
+
+      - name: Upload failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: browser-artifacts-${{ runner.os }}-${{ github.run_id }}
+          path: |
+            test-results/
+            playwright-report/
+            docs/architecture/accessibility-audit-after.json
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Aggregate browser check results
+        if: always()
+        shell: pwsh
+        run: |
+          $playwrightOutcome = "${{ steps.playwright.outcome }}"
+          $accessibilityOutcome = "${{ steps.accessibility.outcome }}"
+          "playwright outcome: $playwrightOutcome"
+          "accessibility outcome: $accessibilityOutcome"
+          if ($playwrightOutcome -ne "success" -or $accessibilityOutcome -ne "success") {
+            Write-Error "Browser checks failed (playwright=$playwrightOutcome, accessibility=$accessibilityOutcome)"
+            exit 1
+          }
