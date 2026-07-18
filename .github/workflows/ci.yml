@@ -153,11 +153,46 @@ jobs:
           }
 
           async function main() {
+            const watchdog = setTimeout(() => {
+              console.error("font diagnostic watchdog timeout");
+              process.exit(2);
+            }, 120000);
+            watchdog.unref();
+
             const preview = spawn("npm", ["run", "preview", "--", "--host", "127.0.0.1", "--port", "4173"], {
               stdio: "pipe",
               shell: true,
             });
-            await waitForServer(60000);
+            let previewOutput = "";
+            preview.stdout?.on("data", (data) => {
+              previewOutput += String(data);
+            });
+            preview.stderr?.on("data", (data) => {
+              previewOutput += String(data);
+            });
+            preview.on("error", (error) => {
+              console.error("preview spawn error:", error.message);
+            });
+
+            const stopPreview = () => {
+              if (process.platform === "win32") {
+                try {
+                  spawn("taskkill", ["/pid", String(preview.pid), "/t", "/f"], { stdio: "ignore" });
+                } catch {
+                  void 0;
+                }
+              } else {
+                preview.kill("SIGTERM");
+              }
+            };
+
+            try {
+              await waitForServer(60000);
+            } catch (error) {
+              console.error("preview server failed to start. Output tail:", previewOutput.slice(-1000));
+              stopPreview();
+              throw error;
+            }
             const browser = await chromium.launch({ headless: true });
             console.log("Chromium version:", browser.version());
             const page = await browser.newPage();
@@ -242,7 +277,8 @@ jobs:
             console.log(JSON.stringify(results, null, 2));
             console.log("FONT-DIAGNOSTIC-JSON-END");
             await browser.close();
-            preview.kill("SIGTERM");
+            stopPreview();
+            process.exit(0);
           }
 
           main().catch((error) => {
